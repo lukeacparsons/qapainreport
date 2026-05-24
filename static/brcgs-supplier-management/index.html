@@ -1,0 +1,681 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>BRCGS Supplier Management Requirements Report</title>
+  <style>
+    :root {
+      --ink: #1f2933;
+      --muted: #5b6673;
+      --paper: #fbfaf7;
+      --panel: #ffffff;
+      --line: #d8ddd7;
+      --navy: #27364a;
+      --green: #2f6b57;
+      --gold: #9b6b24;
+      --red: #8f3f3d;
+      --blue: #315f8c;
+      --soft-green: #e8f2ed;
+      --soft-gold: #f7efd9;
+      --soft-red: #f6e5e1;
+      --soft-blue: #e8f0f8;
+      --shadow: 0 16px 38px rgba(31, 41, 51, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.55;
+    }
+
+    a {
+      color: var(--blue);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 3px;
+    }
+
+    .page {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 28px 22px 56px;
+    }
+
+    header {
+      padding: 38px 0 30px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .eyebrow {
+      margin: 0 0 12px;
+      color: var(--green);
+      font-size: 0.78rem;
+      font-weight: 760;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      max-width: 980px;
+      color: var(--navy);
+      font-size: clamp(2.1rem, 4.8vw, 4.2rem);
+      line-height: 1.04;
+      font-weight: 820;
+      letter-spacing: 0;
+    }
+
+    .dek {
+      max-width: 850px;
+      margin: 18px 0 0;
+      color: var(--muted);
+      font-size: 1.1rem;
+    }
+
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 24px;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 10px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.72);
+      color: var(--muted);
+      font-size: 0.84rem;
+      font-weight: 640;
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--green);
+      flex: 0 0 auto;
+    }
+
+    main {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 290px;
+      gap: 28px;
+      align-items: start;
+      margin-top: 28px;
+    }
+
+    .content {
+      min-width: 0;
+    }
+
+    nav {
+      position: sticky;
+      top: 18px;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.86);
+      box-shadow: var(--shadow);
+    }
+
+    nav h2 {
+      margin: 0 0 10px;
+      color: var(--navy);
+      font-size: 0.92rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    nav a {
+      display: block;
+      padding: 8px 0;
+      border-top: 1px solid var(--line);
+      color: var(--ink);
+      font-size: 0.92rem;
+      text-decoration: none;
+    }
+
+    section {
+      margin-bottom: 24px;
+      padding: 26px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      box-shadow: var(--shadow);
+    }
+
+    h2 {
+      margin: 0 0 14px;
+      color: var(--navy);
+      font-size: 1.55rem;
+      line-height: 1.22;
+      letter-spacing: 0;
+    }
+
+    h3 {
+      margin: 22px 0 8px;
+      color: var(--ink);
+      font-size: 1.08rem;
+      line-height: 1.3;
+      letter-spacing: 0;
+    }
+
+    p {
+      margin: 0 0 12px;
+    }
+
+    ul, ol {
+      margin: 10px 0 0;
+      padding-left: 22px;
+    }
+
+    li {
+      margin: 7px 0;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 14px;
+      overflow-wrap: anywhere;
+      font-size: 0.93rem;
+    }
+
+    th, td {
+      padding: 11px 12px;
+      border: 1px solid var(--line);
+      vertical-align: top;
+      text-align: left;
+    }
+
+    th {
+      background: #f1f4f1;
+      color: var(--navy);
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .callout {
+      margin: 16px 0;
+      padding: 14px 16px;
+      border-left: 4px solid var(--green);
+      background: var(--soft-green);
+      border-radius: 4px;
+    }
+
+    .warning {
+      border-left-color: var(--red);
+      background: var(--soft-red);
+    }
+
+    .note {
+      border-left-color: var(--gold);
+      background: var(--soft-gold);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 14px;
+    }
+
+    .box {
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fcfcfb;
+    }
+
+    .box h3 {
+      margin-top: 0;
+    }
+
+    .status {
+      display: inline-block;
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: var(--soft-blue);
+      color: var(--blue);
+      font-size: 0.76rem;
+      font-weight: 760;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+    }
+
+    .checklist {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 14px;
+      padding: 0;
+      list-style: none;
+    }
+
+    .checklist li {
+      min-height: 44px;
+      margin: 0;
+      padding: 11px 12px 11px 38px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fcfcfb;
+      position: relative;
+    }
+
+    .checklist li::before {
+      content: "";
+      width: 13px;
+      height: 13px;
+      border: 2px solid var(--green);
+      border-radius: 3px;
+      position: absolute;
+      top: 15px;
+      left: 13px;
+      background: #ffffff;
+    }
+
+    .source-list {
+      padding-left: 0;
+      list-style: none;
+    }
+
+    .source-list li {
+      padding: 11px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .small {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    footer {
+      margin-top: 26px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    @media (max-width: 920px) {
+      main {
+        display: block;
+      }
+
+      nav {
+        position: static;
+        margin-bottom: 24px;
+      }
+    }
+
+    @media (max-width: 680px) {
+      .page {
+        padding: 22px 14px 42px;
+      }
+
+      section {
+        padding: 20px 16px;
+      }
+
+      .grid,
+      .checklist {
+        grid-template-columns: 1fr;
+      }
+
+      table {
+        display: block;
+        overflow-x: auto;
+      }
+    }
+
+    @media print {
+      body {
+        background: #ffffff;
+      }
+
+      .page {
+        max-width: none;
+        padding: 0;
+      }
+
+      nav {
+        display: none;
+      }
+
+      main {
+        display: block;
+      }
+
+      section {
+        box-shadow: none;
+        break-inside: avoid;
+      }
+
+      a {
+        color: #000000;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <p class="eyebrow">Research Report</p>
+      <h1>BRCGS Supplier Management Requirements For Certification</h1>
+      <p class="dek">
+        A practical interpretation of BRCGS Food Safety Issue 9 supplier management requirements, combined with implementation patterns found in IFSQN and Elsmar forum discussions.
+      </p>
+      <div class="meta" aria-label="Report metadata">
+        <span class="pill"><span class="dot"></span>Prepared May 24, 2026</span>
+        <span class="pill"><span class="dot"></span>Scope: BRCGS Food Safety Issue 9</span>
+        <span class="pill"><span class="dot"></span>Focus: supplier approval, monitoring, records, workflows</span>
+      </div>
+    </header>
+
+    <main>
+      <div class="content">
+        <section id="executive-summary">
+          <h2>Executive Summary</h2>
+          <p>
+            For BRCGS Food Safety certification, supplier management is not a supporting paperwork activity. It is one of the Standard's fundamental food safety and quality systems. A certifiable site needs a documented, implemented, risk-based supplier approval and monitoring system for raw materials, primary packaging, relevant service providers, and outsourced processing where applicable.
+          </p>
+          <p>
+            The practical test is whether the site can show that it understands the risk of each material, has approved the real supplier or source using appropriate evidence, only purchases and receives approved materials, monitors supplier performance, keeps supplier information current, and has defined controls for exceptions.
+          </p>
+          <div class="callout">
+            <strong>Bottom line:</strong> a site should be able to connect each incoming material to an approved supplier/source, a material risk assessment, a specification, an acceptance method, supplier approval evidence, and ongoing performance review records.
+          </div>
+        </section>
+
+        <section id="current-standard">
+          <h2>Current Standard Context</h2>
+          <p>
+            BRCGS Food Safety Issue 9 was published on August 1, 2022. BRCGS states that the Food Safety Standard is now in its 9th issue and that Issue 9 is undergoing revision activity toward a future Issue 10. As of this report date, Issue 9 remains the relevant published basis for this summary.
+          </p>
+          <p>
+            BRCGS also states that suppliers undergoing a BRCGS audit must have access to an official copy of the Standard and must comply with the applicable modules to achieve certification. This report is a practical summary and should be verified against the official BRCGS Standard and Interpretation Guideline.
+          </p>
+          <div class="note">
+            <strong>Certification caution:</strong> do not rely on this report as the controlled copy of the Standard. Use it to design the program, then confirm exact clause wording and audit protocol expectations against the official BRCGS documents.
+          </div>
+        </section>
+
+        <section id="requirements">
+          <h2>BRCGS Supplier Management Requirements</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Area</th>
+                <th>What BRCGS Requires In Practice</th>
+                <th>Audit Evidence</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="status">3.5.1</span><br>Raw material and primary packaging suppliers</td>
+                <td>Effective supplier approval and monitoring so risks to product safety, authenticity, legality, and quality are understood and controlled.</td>
+                <td>Supplier approval SOP, supplier register, supplier files, risk assessments, performance reviews, corrective actions.</td>
+              </tr>
+              <tr>
+                <td><span class="status">3.5.1.1</span><br>Raw material risk assessment</td>
+                <td>Documented risk assessment for each raw material or raw material group, including primary packaging. The assessment should consider allergens, foreign bodies, microbiological and chemical risks, species or variety cross-contamination, substitution/fraud, legal/customer requirements, and quality significance.</td>
+                <td>Risk assessment matrix, rationale, review dates, change triggers, link to acceptance/testing plans.</td>
+              </tr>
+              <tr>
+                <td><span class="status">3.5.1.2</span><br>Supplier approval method</td>
+                <td>Risk-based approval using certification, supplier audit, and/or questionnaire. Certification must cover the purchased material scope. Audits must cover relevant product safety and management controls. Questionnaires are for low-risk suppliers only and must be reviewed by a competent person.</td>
+                <td>Certificates with scope review, audit reports, questionnaire review records, competent-person sign-off.</td>
+              </tr>
+              <tr>
+                <td><span class="status">3.5.1.3</span><br>Ongoing performance review</td>
+                <td>Documented supplier performance review based on risk and defined criteria. If approval is questionnaire-based, questionnaires are reissued at least every 3 years, and suppliers must notify significant interim changes including certification status changes.</td>
+                <td>Annual or scheduled review records, scorecards, complaint/rejection data, nonconformance trends, supplier change notifications.</td>
+              </tr>
+              <tr>
+                <td><span class="status">3.5.1.4</span><br>Approved supplier list/database</td>
+                <td>Up-to-date approved supplier list or controlled database, available to relevant staff such as Purchasing and Goods Receipt.</td>
+                <td>ASL, ERP approval status, access at receiving, revision/change history, removed/suspended supplier controls.</td>
+              </tr>
+              <tr>
+                <td><span class="status">3.5.1.5</span><br>Agents, brokers, wholesalers</td>
+                <td>Where the seller is not the manufacturer, packer, or consolidator, the site must know the last manufacturer/packer or consolidation point and obtain approval information for that source unless the agent/broker is appropriately certified.</td>
+                <td>Broker records, manufacturer identity, certification status, source approval evidence, traceability to source.</td>
+              </tr>
+              <tr>
+                <td><span class="status">3.5.1.6</span><br>Traceability verification</td>
+                <td>Suppliers must operate effective traceability. If approval is based on questionnaire rather than certification or audit, traceability must be verified at initial approval and at least every 3 years.</td>
+                <td>Supplier trace test, traceability questionnaire evidence, audit report, certification scope, review record.</td>
+              </tr>
+              <tr>
+                <td><span class="status">3.5.1.7</span><br>Exceptions</td>
+                <td>Procedures must define actions when normal approval cannot be completed, such as customer-prescribed suppliers or unavailable supplier information for bulk commodities. Product testing is used to verify quality and safety; customer-branded product customers are informed of relevant exceptions.</td>
+                <td>Exception SOP, deviation records, risk assessment, testing records, customer notification where applicable.</td>
+              </tr>
+              <tr>
+                <td><span class="status">3.5.2</span><br>Raw material acceptance</td>
+                <td>Receipt and release controls must be based on material risk assessment and can include visual inspection, sampling/testing, consignment COA, or COC. Acceptance parameters and frequency must be defined and reviewed.</td>
+                <td>Goods receipt records, inspection criteria, COA checks, release records, testing schedule, rejected-lot records.</td>
+              </tr>
+              <tr>
+                <td><span class="status">3.5.3</span><br>Service suppliers</td>
+                <td>Relevant services must be approved and monitored based on risk, including pest control, laundry, cleaning, maintenance, transport, storage, packing, labs, catering, waste, training providers, and consultants. Formal agreements should define expectations and address food safety risks.</td>
+                <td>Service supplier list, contracts, SLAs, certificates, licenses, review records, service nonconformances.</td>
+              </tr>
+              <tr>
+                <td><span class="status">3.5.4</span><br>Outsourced processing</td>
+                <td>Intermediate processing completed off site and returned to the audited site must be approved, monitored, traceable, and declared to customers where required.</td>
+                <td>Customer approval, outsourced processor approval file, trace records, specifications, inspection/testing records.</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section id="workflow">
+          <h2>Recommended Certification Workflow</h2>
+          <ol>
+            <li><strong>Define scope.</strong> Identify all raw materials, primary packaging, services, and outsourced processing steps that can affect product safety, legality, authenticity, or quality.</li>
+            <li><strong>Risk-assess materials.</strong> Rate each material or material group for allergen, microbiological, chemical, physical, fraud, legal, customer, and quality risks.</li>
+            <li><strong>Set approval method.</strong> Decide what approval evidence is required by risk level: GFSI/BRCGS certification, supplier audit, questionnaire, trace test, COA/COC, specifications, or additional testing.</li>
+            <li><strong>Approve the real source.</strong> For distributors, brokers, and wholesalers, identify and approve the manufacturer, packer, or consolidator unless the broker route is covered by acceptable certification.</li>
+            <li><strong>Gate purchasing.</strong> Purchasing should only buy from suppliers approved for the relevant material or service. ERP flags or controlled ASL access are the strongest controls.</li>
+            <li><strong>Gate receiving.</strong> Goods Receipt should verify supplier and material approval, correct version/specification, lot information, condition, and required COA/COC or inspection results before release.</li>
+            <li><strong>Track document currency.</strong> Maintain expiry and review dates for certificates, audits, questionnaires, guarantees, declarations, specifications, and key supplier contacts.</li>
+            <li><strong>Monitor performance.</strong> Review rejected lots, complaints, delivery failures, documentation failures, audit findings, corrective actions, certification changes, and responsiveness.</li>
+            <li><strong>Control changes.</strong> Supplier agreements should require advance written notification for formulation, specification, site, process, allergen, declaration, certification, and regulatory changes.</li>
+            <li><strong>Review and reapprove.</strong> Review suppliers on a risk-based schedule, usually at least annually for performance review, and ensure BRCGS three-year requirements are met for raw material risk assessment and questionnaire/traceability-based approvals.</li>
+          </ol>
+        </section>
+
+        <section id="records">
+          <h2>Audit-Ready Records</h2>
+          <ul class="checklist">
+            <li>Supplier approval and monitoring procedure.</li>
+            <li>Raw material and packaging risk assessments.</li>
+            <li>Approved supplier list or ERP-approved supplier database.</li>
+            <li>Supplier approval evidence by supplier and material.</li>
+            <li>Certificate scope review and expiry tracking.</li>
+            <li>Supplier audit reports and corrective action closure.</li>
+            <li>Low-risk supplier questionnaire review and sign-off.</li>
+            <li>Traceability verification for questionnaire-approved suppliers.</li>
+            <li>Broker, agent, wholesaler, and last-manufacturer identity records.</li>
+            <li>Specifications and supplier agreements.</li>
+            <li>Incoming goods acceptance records.</li>
+            <li>COA/COC review and release records.</li>
+            <li>Supplier performance reviews and scorecards.</li>
+            <li>Supplier complaints, nonconformances, and corrective actions.</li>
+            <li>Supplier change notifications and internal approval decisions.</li>
+            <li>Emergency or exception purchase records.</li>
+            <li>Service supplier contracts and performance reviews.</li>
+            <li>Evidence that relevant staff know and use the controls.</li>
+          </ul>
+        </section>
+
+        <section id="practical-implementation">
+          <h2>Practical Implementation Pattern From Forums</h2>
+          <div class="grid">
+            <div class="box">
+              <h3>Tracker Or Database</h3>
+              <p>
+                Forum users commonly maintain supplier approval in Excel, supplier portals, ERP, or purchasing systems. The practical fields are supplier, manufacturer site, material, contact, approval basis, risk rating, approval date, review date, cert type, cert expiry, document status, and follow-up history.
+              </p>
+            </div>
+            <div class="box">
+              <h3>Expiry Management</h3>
+              <p>
+                Teams track certification, allergen statements, letters of guarantee, declarations, audit dates, and questionnaire renewals. Common practice is color-coded expiry alerts, automated portal reminders, or scheduled email follow-up.
+              </p>
+            </div>
+            <div class="box">
+              <h3>Purchasing Control</h3>
+              <p>
+                Strong systems prevent purchase orders to unapproved suppliers. Some sites define active ERP suppliers as approved suppliers, provided approval and deactivation criteria are documented.
+              </p>
+            </div>
+            <div class="box">
+              <h3>Receiving Control</h3>
+              <p>
+                Receiving teams should have current approved supplier/material information and acceptance criteria. This prevents unapproved suppliers, wrong versions, missing COAs, or unapproved manufacturing sites from entering production.
+              </p>
+            </div>
+            <div class="box">
+              <h3>Risk-Based Depth</h3>
+              <p>
+                High-risk suppliers generally need certification or audit. Low-risk suppliers may be questionnaire-approved, but the low-risk rationale must be documented and reviewed by a competent person.
+              </p>
+            </div>
+            <div class="box">
+              <h3>Supplier Change Notice</h3>
+              <p>
+                Forum contributors repeatedly stress the need for supplier agreements requiring written notification before changes that could affect product safety, label accuracy, allergen status, legality, or functionality.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section id="pitfalls">
+          <h2>Common Nonconformity Risks</h2>
+          <ul>
+            <li><strong>ASL exists but is not used.</strong> Purchasing and Receiving must use the current list or database operationally.</li>
+            <li><strong>Supplier files lack the approval basis.</strong> Auditors will ask how the supplier originally became approved and whether that evidence is still valid.</li>
+            <li><strong>Certification scope is not checked.</strong> A certificate alone is not enough if the scope does not cover the purchased material.</li>
+            <li><strong>Questionnaires are used for suppliers that are not low risk.</strong> BRCGS allows questionnaires for low-risk suppliers only when justified.</li>
+            <li><strong>Distributors are approved but manufacturers are unknown.</strong> BRCGS expects visibility to the last manufacturer, packer, or consolidator unless an appropriate certified route applies.</li>
+            <li><strong>Materials are purchased before approval.</strong> Forum users identify this as one of the most damaging workflow failures because suppliers often stop responding once the sale is made.</li>
+            <li><strong>Supplier performance review is subjective.</strong> Define measurable criteria such as nonconformances, complaints, rejected lots, COA failures, late documents, delivery failures, and corrective action response.</li>
+            <li><strong>Emergency purchases are undocumented.</strong> Exceptions need a defined procedure, risk assessment, testing/inspection before use, and records.</li>
+            <li><strong>Service suppliers are forgotten.</strong> Pest control, labs, transport, storage, maintenance, and other relevant services require risk-based approval and monitoring.</li>
+          </ul>
+          <div class="warning">
+            <strong>Highest-risk failure mode:</strong> a program that says suppliers must be approved before purchase, while leadership or Purchasing routinely bypasses the process. That creates both an audit problem and a food safety governance problem.
+          </div>
+        </section>
+
+        <section id="minimum-program">
+          <h2>Minimum Viable BRCGS Supplier Program</h2>
+          <p>
+            A lean but defensible program can be built with six controlled records and one enforced workflow.
+          </p>
+          <table>
+            <thead>
+              <tr>
+                <th>Component</th>
+                <th>Purpose</th>
+                <th>Minimum Fields Or Content</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Supplier approval SOP</td>
+                <td>Defines who selects, evaluates, approves, monitors, suspends, and reapproves suppliers.</td>
+                <td>Roles, approval methods, risk logic, emergency process, change notice requirements, records.</td>
+              </tr>
+              <tr>
+                <td>Raw material risk register</td>
+                <td>Shows why supplier approval and incoming controls are proportionate to risk.</td>
+                <td>Material/group, hazards, fraud risk, legal/customer controls, risk rating, review date.</td>
+              </tr>
+              <tr>
+                <td>Approved supplier database</td>
+                <td>Controls who Purchasing and Receiving can use.</td>
+                <td>Supplier, site/source, material/service approved, status, restrictions, review date.</td>
+              </tr>
+              <tr>
+                <td>Supplier evidence file</td>
+                <td>Proves approval basis and current compliance.</td>
+                <td>Certificate/audit/questionnaire, scope review, specs, declarations, guarantee, traceability evidence.</td>
+              </tr>
+              <tr>
+                <td>Incoming acceptance matrix</td>
+                <td>Defines what must happen at receipt before release.</td>
+                <td>Material, supplier, visual check, COA/COC, sampling/testing, frequency, release authority.</td>
+              </tr>
+              <tr>
+                <td>Supplier performance review</td>
+                <td>Maintains approval status based on actual performance.</td>
+                <td>Complaints, rejections, delivery, documentation, corrective actions, certification changes, decision.</td>
+              </tr>
+              <tr>
+                <td>Purchase/receipt gate</td>
+                <td>Prevents bypassing the system.</td>
+                <td>ERP block, ASL check, receiving check, exception approval, hold/release process.</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section id="sources">
+          <h2>Sources</h2>
+          <p class="small">
+            The BRCGS requirements are summarized from BRCGS Food Safety Issue 9 public pages and an accessible Issue 9 PDF copy. The implementation observations are from IFSQN and Elsmar forum posts retrieved through the forum MCP.
+          </p>
+          <ul class="source-list">
+            <li><a href="https://www.brcgs.com/our-standards/food-safety/">BRCGS Food Safety Standard overview</a> - confirms Issue 9 context and scope of the Food Safety Standard.</li>
+            <li><a href="https://www.brcgs.com/product/global-standard-food-safety-%28issue-9%29/p-13279/">BRCGS Global Standard Food Safety Issue 9 product page</a> - publish date, official copy requirement, and Issue 9 product information.</li>
+            <li><a href="https://www.brcgs.com/about-brcgs/news/2026/public-consultation-food-safety-issue-9/">BRCGS Issue 9 public consultation news</a> - confirms Issue 9 revision process and Issue 10 consultation activity.</li>
+            <li><a href="https://www.kiwa.com/4a8dba/contentassets/74de4a9e4eff43bbad4a03bcca2dc394/brcgs-standards-issue-9.pdf">BRCGS Food Safety Issue 9 PDF copy accessed via Kiwa</a> - used for clause-level supplier management summary. Verify against official BRCGS copy.</li>
+            <li><a href="https://www.ifsqn.com/forum/index.php/topic/20317-criteria-for-evaluating-a-supplier-to-determine-the-level-of-risk/#entry60545">IFSQN: Criteria for evaluating supplier risk</a> - risk factors and risk-based approval/monitoring examples.</li>
+            <li><a href="https://www.ifsqn.com/forum/index.php/topic/25990-what-information-to-include-on-an-approved-supplier-list/#entry93322">IFSQN: Approved supplier list fields</a> - product, contact, approval date, review date, certification, and live-document warning.</li>
+            <li><a href="https://www.ifsqn.com/forum/index.php/topic/44601-supplier-approval-program-management/#entry189534">IFSQN: Supplier approval program management</a> - expiry tracking and follow-up email evidence.</li>
+            <li><a href="https://www.ifsqn.com/forum/index.php/topic/38544-how-do-you-handle-supplier-documentation-such-as-logs-updated-certificates-spec-sheets-etc/#entry160735">IFSQN: Supplier documentation and portals</a> - supplier portal workflow and fallback manual chasing.</li>
+            <li><a href="https://www.ifsqn.com/forum/index.php/topic/49219-supplier-qualification-vs-material-ordering-%E2%80%93-what-comes-first/#entry213964">IFSQN: Supplier qualification before ordering</a> - purchasing and receiving gates against the approved list.</li>
+            <li><a href="https://www.ifsqn.com/forum/index.php/topic/41030-supplier-changes-specification/#entry173642">IFSQN: Supplier specification changes</a> - advance written supplier change notification and internal approval.</li>
+            <li><a href="https://elsmar.com/elsmarqualityforum/threads/how-supplier-evaluations-work-iso-9001-7-4-1-records-of-the-results-of-evaluations.17378/page-2#post-159787">Elsmar: ERP active suppliers as approved suppliers</a> - using ERP active status as the approved supplier list with documented criteria.</li>
+            <li><a href="https://elsmar.com/elsmarqualityforum/threads/supplier-approval-for-special-services.11973/#post-108932">Elsmar: Purchasing software supplier approval flags</a> - preventing purchase orders when approval is removed.</li>
+          </ul>
+        </section>
+      </div>
+
+      <nav aria-label="Table of contents">
+        <h2>Contents</h2>
+        <a href="#executive-summary">Executive Summary</a>
+        <a href="#current-standard">Current Standard</a>
+        <a href="#requirements">Requirements</a>
+        <a href="#workflow">Workflow</a>
+        <a href="#records">Audit Records</a>
+        <a href="#practical-implementation">Forum Patterns</a>
+        <a href="#pitfalls">Pitfalls</a>
+        <a href="#minimum-program">Minimum Program</a>
+        <a href="#sources">Sources</a>
+      </nav>
+    </main>
+
+    <footer>
+      <p>
+        Prepared as a practical research report. Clause summaries are paraphrased for usability and should be checked against the official BRCGS Food Safety Issue 9 Standard and Interpretation Guideline before audit use.
+      </p>
+    </footer>
+  </div>
+</body>
+</html>
