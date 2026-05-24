@@ -1,0 +1,682 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>IFSQN Forum Evidence Report: BRCGS Tool Candidates</title>
+  <style>
+    :root {
+      --ink: #17202a;
+      --muted: #5f6b7a;
+      --line: #d8dee8;
+      --panel: #f7f9fc;
+      --strong: #0f766e;
+      --mid: #b45309;
+      --weak: #7f1d1d;
+      --link: #155e75;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--ink);
+      background: #fff;
+      line-height: 1.45;
+    }
+    header {
+      padding: 32px 40px 24px;
+      border-bottom: 1px solid var(--line);
+      background: #f3f7fb;
+    }
+    main { padding: 28px 40px 48px; }
+    h1 { margin: 0 0 10px; font-size: 30px; letter-spacing: 0; }
+    h2 { margin: 30px 0 10px; font-size: 20px; }
+    p { max-width: 1120px; }
+    .meta { color: var(--muted); margin: 0; }
+    .summary {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(160px, 1fr));
+      gap: 12px;
+      margin: 22px 0;
+      max-width: 1120px;
+    }
+    .metric {
+      border: 1px solid var(--line);
+      background: #fff;
+      border-radius: 8px;
+      padding: 14px 16px;
+    }
+    .metric b { display: block; font-size: 24px; }
+    .metric span { color: var(--muted); font-size: 13px; }
+    .note {
+      max-width: 1120px;
+      padding: 14px 16px;
+      border: 1px solid var(--line);
+      background: var(--panel);
+      border-radius: 8px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      table-layout: fixed;
+      margin-top: 16px;
+      font-size: 14px;
+    }
+    th, td {
+      border: 1px solid var(--line);
+      padding: 10px 12px;
+      vertical-align: top;
+    }
+    th {
+      text-align: left;
+      background: #eaf1f7;
+      font-size: 13px;
+      color: #263445;
+    }
+    td.rank { width: 54px; text-align: right; font-weight: 700; }
+    td.score { width: 72px; text-align: center; font-weight: 700; }
+    td.product { width: 220px; font-weight: 700; }
+    td.clauses { width: 138px; color: var(--muted); }
+    td.evidence { width: 360px; }
+    .tag {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      margin-top: 4px;
+    }
+    .very-strong { background: #d1fae5; color: var(--strong); }
+    .strong { background: #e0f2fe; color: #075985; }
+    .moderate { background: #fef3c7; color: var(--mid); }
+    .niche { background: #fee2e2; color: var(--weak); }
+    blockquote {
+      margin: 6px 0 6px;
+      padding-left: 10px;
+      border-left: 3px solid #9bb6c6;
+      color: #243241;
+    }
+    a { color: var(--link); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .small { color: var(--muted); font-size: 12px; }
+    ol.top {
+      columns: 2;
+      max-width: 1120px;
+      padding-left: 24px;
+    }
+    ol.top li { margin: 4px 0; break-inside: avoid; }
+    @media (max-width: 900px) {
+      header, main { padding-left: 18px; padding-right: 18px; }
+      .summary { grid-template-columns: 1fr 1fr; }
+      table { display: block; overflow-x: auto; white-space: normal; }
+      ol.top { columns: 1; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>IFSQN Forum Evidence Report: BRCGS Tool Candidates</h1>
+    <p class="meta">Generated 2026-05-24. Scope: IFSQN MCP search results only; Elsmar was not used. Ranking reflects forum evidence for product pain and repeatable demand, not the regulatory importance of a clause.</p>
+  </header>
+  <main>
+    <section class="summary" aria-label="Report summary">
+      <div class="metric"><b>64</b><span>candidate tools reviewed</span></div>
+      <div class="metric"><b>64</b><span>rows with source links</span></div>
+      <div class="metric"><b>30</b><span>very strong or strong opportunities</span></div>
+      <div class="metric"><b>IFSQN</b><span>forum corpus queried via MCP</span></div>
+    </section>
+
+    <section class="note">
+      <p><strong>Scoring method.</strong> I scored each idea from 0-10 using three signals: directness of forum pain ("how do I comply?", NCs, template requests), repeatability across posts and adjacent clauses, and product fit for a small, repeatable workflow. Niche clauses can score lower even when the evidence is direct, because the forum evidence points to a narrower buyer set.</p>
+      <p><strong>Quote policy.</strong> The quotes are intentionally short excerpts from the linked posts. The interpretation column is my synthesis from the retrieved forum evidence.</p>
+    </section>
+
+    <h2>Top Opportunities</h2>
+    <ol class="top">
+      <li>Traceability and mass-balance/mock-recall tool</li>
+      <li>Supplier approval and monitoring portal</li>
+      <li>Allergen matrix and changeover validator</li>
+      <li>Root-cause and CAPA tracker</li>
+      <li>Internal audit and factory-inspection app</li>
+      <li>Food safety and quality culture planner</li>
+      <li>Management review pack generator</li>
+      <li>Document-control mini-QMS</li>
+      <li>Food fraud, vulnerability and claims tool</li>
+      <li>HACCP review/change-impact workflow</li>
+    </ol>
+
+    <h2>Ranked Evidence Table</h2>
+    <table>
+      <thead>
+        <tr>
+          <th style="width:54px;">Rank</th>
+          <th style="width:74px;">Score</th>
+          <th style="width:220px;">Tool candidate</th>
+          <th style="width:138px;">Clause(s)</th>
+          <th style="width:360px;">Evidence source and quote</th>
+          <th>Interpretation</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="rank">1</td>
+          <td class="score">9.8<br><span class="tag very-strong">Very strong</span></td>
+          <td class="product">Traceability and mass-balance/mock-recall tool</td>
+          <td class="clauses">3.9.1-3.9.4; 9.6.1-9.6.3</td>
+          <td class="evidence"><a href="https://www.ifsqn.com/forum/index.php/topic/19995-mock-recall-forward-and-backward-traceability-requirements/#entry59100">Mock Recall - Forward and backward traceability requirements</a><blockquote>"Doing all that within 4 hours is somewhat unachievable for a manual system."</blockquote></td>
+          <td>Strongest fit. The pain is explicit: timed tests, forward/backward tracing, mass balance, rework, and manual systems. Software value is obvious and measurable.</td>
+        </tr>
+        <tr>
+          <td class="rank">2</td>
+          <td class="score">9.7<br><span class="tag very-strong">Very strong</span></td>
+          <td class="product">Supplier approval and monitoring portal</td>
+          <td class="clauses">3.5.1.2-3.5.1.7</td>
+          <td class="evidence"><a href="https://www.ifsqn.com/forum/index.php/topic/211-wasting-time-filling-in-endless-customer-questionnaires/#entry845">Wasting Time Filling in Endless Customer Questionnaires</a><blockquote>"documented supplier approval procedure in place based upon risk assessments"</blockquote></td>
+          <td>Many posts ask about supplier questionnaires, audits, certificates, low-risk routes, approved supplier lists, and NC closure. This is a broad, recurring workflow.</td>
+        </tr>
+        <tr>
+          <td class="rank">3</td>
+          <td class="score">9.6<br><span class="tag very-strong">Very strong</span></td>
+          <td class="product">Allergen matrix and changeover validator</td>
+          <td class="clauses">5.3.1-5.3.8</td>
+          <td class="evidence"><a href="https://www.ifsqn.com/forum/index.php/topic/48577-allergen-cleaning-validation-method/#entry210297">Allergen cleaning validation method</a><blockquote>"validate your cleaning regime during the changeover"</blockquote></td>
+          <td>Evidence points to raw-material allergen status, cross-contact routes, scheduling, rework, label claims, and cleaning validation. High risk and high anxiety for auditors.</td>
+        </tr>
+        <tr>
+          <td class="rank">4</td>
+          <td class="score">9.5<br><span class="tag very-strong">Very strong</span></td>
+          <td class="product">Root-cause and CAPA tracker</td>
+          <td class="clauses">1.1.12; 3.7.1-3.7.2</td>
+          <td class="evidence"><a href="https://www.ifsqn.com/forum/index.php/topic/44698-brc-1112-recurring-nonconformity/#entry190049">BRC 1.1.12 - Recurring Nonconformity</a><blockquote>"Can you help me with the corrective action?"</blockquote></td>
+          <td>Direct NC and recurrence pain. Users need structured RCA, action ownership, recurrence checks, and linkage to prior audit findings.</td>
+        </tr>
+        <tr>
+          <td class="rank">5</td>
+          <td class="score">9.4<br><span class="tag very-strong">Very strong</span></td>
+          <td class="product">Internal audit and factory-inspection app</td>
+          <td class="clauses">3.4.1-3.4.4</td>
+          <td class="evidence"><a href="https://www.ifsqn.com/forum/index.php/topic/42671-internal-audit-schedule-as-per-brc-issue-8/#entry181610">Internal Audit schedule as per BRC Issue 8</a><blockquote>"spread these out over at least four dates"</blockquote></td>
+          <td>Evidence includes schedules, auditor independence, routine hygiene/fabrication inspections, templates, corrective actions, and reporting. Strong product boundary.</td>
+        </tr>
+        <tr>
+          <td class="rank">6</td>
+          <td class="score">9.3<br><span class="tag very-strong">Very strong</span></td>
+          <td class="product">Food safety and quality culture planner</td>
+          <td class="clauses">1.1.2</td>
+          <td class="evidence"><a href="https://www.ifsqn.com/forum/index.php/topic/49307-is-food-safety-culture-a-fad-or-a-foundational-practice/#entry214441">Is Food Safety Culture a Fad or a Foundational Practice?</a><blockquote>"how can I accurately measure CULTURE with metrics?"</blockquote></td>
+          <td>The forum shows strong uncertainty around measuring culture, employee feedback, surveys, activities, and annual review evidence. A planner can turn vague expectations into records.</td>
+        </tr>
+        <tr>
+          <td class="rank">7</td>
+          <td class="score">9.2<br><span class="tag very-strong">Very strong</span></td>
+          <td class="product">Management review pack generator</td>
+          <td class="clauses">1.1.4</td>
+          <td class="evidence"><a href="https://www.ifsqn.com/forum/index.php/topic/29864-brc-113-meeting-of-managing-review-minutes/#entry150032">BRC 1.1.3 - Meeting of Managing Review Minutes</a><blockquote>"previous management review action plans and timeframes"</blockquote></td>
+          <td>Posts repeatedly list audit results, complaints, incidents, OOS results, HACCP, food defence, authenticity, objectives, resources, and actions. A pack generator maps cleanly to this.</td>
+        </tr>
+        <tr>
+          <td class="rank">8</td>
+          <td class="score">9.1<br><span class="tag very-strong">Very strong</span></td>
+          <td class="product">Document-control mini-QMS</td>
+          <td class="clauses">3.1.1-3.2.1</td>
+          <td class="evidence"><a href="https://www.ifsqn.com/forum/index.php/topic/38897-need-suggestions-on-the-creation-of-a-document-register-document-control-and-labeling-of-each-document/#entry211761">Document register and document control suggestions</a><blockquote>"people tend to make document control much harder than it needs to be"</blockquote></td>
+          <td>Strong evidence for registers, latest version, authorization, change records, obsolete copies, and access. The workflow is generic enough to sell across standards.</td>
+        </tr>
+        <tr>
+          <td class="rank">9</td>
+          <td class="score">9.0<br><span class="tag very-strong">Very strong</span></td>
+          <td class="product">Food fraud, vulnerability and claims tool</td>
+          <td class="clauses">5.4.1-5.4.7</td>
+          <td class="evidence"><a href="https://www.ifsqn.com/forum/index.php/topic/25114-54-product-authenticity-claims-and-chain-of-custody-procedure/#entry88657">Product Authenticity Claims and Chain of Custody Procedure</a><blockquote>"does not define the exact process"</blockquote></td>
+          <td>Forum evidence shows uncertainty over vulnerability assessment, testing, provenance, chain of custody, claims, market intelligence, and mass balance.</td>
+        </tr>
+        <tr>
+          <td class="rank">10</td>
+          <td class="score">8.9<br><span class="tag very-strong">Very strong</span></td>
+          <td class="product">HACCP review/change-impact workflow</td>
+          <td class="clauses">2.12.1-2.12.3</td>
+          <td class="evidence"><a href="https://www.ifsqn.com/forum/index.php/topic/29617-261-how-long-should-a-haccp-review-take/#entry112807">2.6.1 - How long should a HACCP Review take?</a><blockquote>"change in raw materials or supplier of raw materials"</blockquote></td>
+          <td>Clear recurring need for prompts that trigger review, minutes, verification data, and sign-off. The product can reduce missed change impacts.</td>
+        </tr>
+        <tr>
+          <td class="rank">11</td>
+          <td class="score">8.8<br><span class="tag very-strong">Very strong</span></td>
+          <td class="product">Process-flow diagram builder and verifier</td>
+          <td class="clauses">2.5.1-2.6.1</td>
+          <td class="evidence"><a href="https://www.ifsqn.com/forum/index.php/topic/34152-how-is-everyone-under-brc-version-8-challenging-their-flow-diagram/#entry136599">Challenging flow diagrams under BRC v8</a><blockquote>"How is everyone...challenging their flow diagram?"</blockquote></td>
+          <td>Evidence is direct: users ask about annual challenge, on-site verification, seasonal/daily variation, and records. A diagram plus verification log is a natural tool.</td>
+        </tr>
+        <tr>
+          <td class="rank">12</td>
+          <td class="score">8.7<br><span class="tag very-strong">Very strong</span></td>
+          <td class="product">Raw-material and packaging risk-assessment tool</td>
+          <td class="clauses">3.5.1.1</td>
+          <td class="evidence"><a href="https://www.ifsqn.com/forum/index.php/topic/26911-how-to-do-a-risk-assessment-of-packaging/#entry98579">How to do a risk assessment of packaging?</a><blockquote>"risk of micro contamination, foreign bodies and chemical migration"</blockquote></td>
+          <td>Strong evidence around allergens, microbiological, chemical, foreign body, fraud, legality, quality, and packaging risks. This also feeds supplier approval and goods-in controls.</td>
+        </tr>
+        <tr>
+          <td class="rank">13</td>
+          <td class="score">8.6<br><span class="tag strong">Strong</span></td>
+          <td class="product">Artwork, label and pack-control tool</td>
+          <td class="clauses">5.2.1-5.2.4; 6.2.1-6.2.4</td>
+          <td class="evidence"><a href="https://www.ifsqn.com/forum/index.php/topic/42800-label-reconciliation-problem-sqf-edition-9/#entry182273">Label Reconciliation problem SQF edition 9</a><blockquote>"Mislabeling of allergens is one of the most common reasons for recalls."</blockquote></td>
+          <td>The risk is high and operational: label approval, recipe-to-label comparison, line clearance, coding checks, and reconciliation. Strong cross-standard evidence.</td>
+        </tr>
+        <tr>
+          <td class="rank">14</td>
+          <td class="score">8.5<br><span class="tag strong">Strong</span></td>
+          <td class="product">Training and competency matrix</td>
+          <td class="clauses">7.1.1-7.1.7</td>
+          <td class="evidence"><a href="https://www.ifsqn.com/forum/index.php/topic/26520-should-we-have-a-year-plan-for-employee-training/#entry96275">Should we have a year plan for employee training?</a><blockquote>"Use a matrix and system of reminders for re-training."</blockquote></td>
+          <td>Evidence supports induction, refresher cycles, CCP competence, temporary staff, contractors, training effectiveness, and competence proof for long-term staff.</td>
+        </tr>
+        <tr>
+          <td class="rank">15</td>
+          <td class="score">8.4<br><span class="tag strong">Strong</span></td>
+          <td class="product">Environmental monitoring programme tool</td>
+          <td class="clauses">4.11.8.1-4.11.8.3; 8.5.2</td>
+          <td class="evidence"><a href="https://www.ifsqn.com/forum/index.php/topic/35113-environmental-monitoring-programfrequency/#entry143487">Environmental Monitoring Program/Frequency</a><blockquote>"no risk assessment made...or clearly identified zones. Yikes."</blockquote></td>
+          <td>Good product fit: zone-based plans, organisms, frequencies, results, limits, trends, corrective actions, and annual review triggers.</td>
+        </tr>
+        <tr>
+          <td class="rank">16</td>
+          <td class="score">8.3<br><span class="tag strong">Strong</span></td>
+          <td class="product">CCP limits, monitoring and deviation log</td>
+          <td class="clauses">2.9.1-2.11.1</td>
+          <td class="evidence"><a href="https://www.ifsqn.com/forum/index.php/topic/21663-ccp-monitoring-records/#entry66921">CCP monitoring records</a><blockquote>"How often are you monitoring them? What are your critical limits?"</blockquote></td>
+          <td>Clear pain around critical limits, monitoring frequency, verification, missed checks, deviations, and records. A log can prevent audit mismatch and product release risk.</td>
+        </tr>
+        <tr>
+          <td class="rank">17</td>
+          <td class="score">8.2<br><span class="tag strong">Strong</span></td>
+          <td class="product">Cleaning schedule and hygiene-release app</td>
+          <td class="clauses">4.11.2-4.11.6</td>
+          <td class="evidence"><a href="https://www.ifsqn.com/forum/index.php/topic/23543-sqf-42131-master-sanitation-schedule/#entry78599">Master Sanitation Schedule</a><blockquote>"what is to be cleaned, how...frequency...responsibility"</blockquote></td>
+          <td>Evidence supports master schedules, SSOPs, concentrations, contact time, pre-op checks, verification, and corrective actions. Strong operational workflow.</td>
+        </tr>
+        <tr>
+          <td class="rank">18</td>
+          <td class="score">8.1<br><span class="tag strong">Strong</span></td>
+          <td class="product">HACCP source-evidence library</td>
+          <td class="clauses">2.3.2</td>
+          <td class="evidence"><a href="https://www.ifsqn.com/forum/index.php/topic/24838-does-brc-v7-have-any-new-requirements-for-haccp/#entry87878">Does BRC V7 have any new requirements for HACCP?</a><blockquote>"referenced in the HACCP plan and be recoverable"</blockquote></td>
+          <td>Evidence shows auditors expect scientific literature, historical hazards, guidelines, legislation, customer requirements, and recoverable sources, not ad hoc web searches.</td>
+        </tr>
+        <tr>
+          <td class="rank">19</td>
+          <td class="score">8.0<br><span class="tag strong">Strong</span></td>
+          <td class="product">Certification and audit-calendar tracker</td>
+          <td class="clauses">1.1.10; Part III audit protocol</td>
+          <td class="evidence"><a href="https://www.ifsqn.com/forum/index.php/topic/45979-brc-packaging-unannounced-audit/#entry196919">BRC Packaging - Unannounced Audit</a><blockquote>"does the unannounced audit need to be scheduled?"</blockquote></td>
+          <td>Strong scheduling pain around unannounced windows, blackout days, recertification timing, and seasonal operations. Useful for multi-site or lean QA teams.</td>
+        </tr>
+        <tr>
+          <td class="rank">20</td>
+          <td class="score">7.9<br><span class="tag strong">Strong</span></td>
+          <td class="product">Equipment hygienic-design and commissioning checklist</td>
+          <td class="clauses">4.6.1-4.6.4</td>
+          <td class="evidence"><a href="https://www.ifsqn.com/forum/index.php/topic/45194-brcgs-section-46-risk-assessments-for-version-9/#entry192609">BRCGS Section 4.6 risk assessments for version 9</a><blockquote>"documented, risk-based commissioning procedure"</blockquote></td>
+          <td>Evidence supports purchase specification, hygienic design risk assessment, commissioning, hygiene clearance, training and procedure updates, and sign-off.</td>
+        </tr>
+        <tr>
+          <td class="rank">21</td>
+          <td class="score">7.8<br><span class="tag strong">Strong</span></td>
+          <td class="product">Hazard analysis and CCP decision-tree tool</td>
+          <td class="clauses">2.7.1-2.8.1</td>
+          <td class="evidence"><a href="https://www.ifsqn.com/forum/index.php/topic/22436-haccp-worksheet/#entry71201">HACCP worksheet?</a><blockquote>"Identify the hazard...Risk assess the Hazard"</blockquote></td>
+          <td>Evidence shows users need guided biological, chemical, physical, allergen and radiological analysis, likelihood/severity scoring, PRPs, and decision-tree outputs.</td>
+        </tr>
+        <tr>
+          <td class="rank">22</td>
+          <td class="score">7.7<br><span class="tag strong">Strong</span></td>
+          <td class="product">Product testing, lab-results and trend tool</td>
+          <td class="clauses">5.6.1-5.6.7; 9.4.1-9.4.5</td>
+          <td class="evidence"><a href="https://www.ifsqn.com/forum/index.php/topic/27077-brc-5613-ongoing-shelf-life-assessment-program/#entry99544">BRC 5.6.1.3 - ongoing shelf life assessment program</a><blockquote>"ongoing shelf life assessment program"</blockquote></td>
+          <td>Evidence supports risk-based testing, shelf-life verification, pH/aw, micro and sensory testing, lab records, and trend analysis.</td>
+        </tr>
+        <tr>
+          <td class="rank">23</td>
+          <td class="score">7.6<br><span class="tag strong">Strong</span></td>
+          <td class="product">Incident, withdrawal and recall workflow</td>
+          <td class="clauses">3.11.1-3.11.4</td>
+          <td class="evidence"><a href="https://www.ifsqn.com/forum/index.php/topic/45178-how-to-conduct-a-mock-recall-for-an-agents-and-brokers-brc-audit/#entry192612">How to conduct a Mock Recall for BRC audit?</a><blockquote>"verification of contacts and timings of key activities"</blockquote></td>
+          <td>Strong adjacent to traceability. Users need annual test records, contacts, decision-making, notification logs, timings, and procedure improvement evidence.</td>
+        </tr>
+        <tr>
+          <td class="rank">24</td>
+          <td class="score">7.5<br><span class="tag strong">Strong</span></td>
+          <td class="product">Complaint investigation and trend tool</td>
+          <td class="clauses">3.10.1-3.10.2</td>
+          <td class="evidence"><a href="https://www.ifsqn.com/forum/index.php/topic/46828-complaint-classification/#entry201229">Complaint classification</a><blockquote>"categorise them by type of complaint and look at trends"</blockquote></td>
+          <td>Evidence supports complaint classification, batch linkage, investigation, RCA, corrective actions, trend thresholds, and reporting to management review.</td>
+        </tr>
+        <tr>
+          <td class="rank">25</td>
+          <td class="score">7.4<br><span class="tag strong">Strong</span></td>
+          <td class="product">HACCP team and scope manager</td>
+          <td class="clauses">2.1.1-2.1.2</td>
+          <td class="evidence"><a href="https://www.ifsqn.com/forum/index.php/topic/40644-questions-related-to-haccp-training-and-the-haccp-plan/#entry171891">Questions related to HACCP training and the HACCP Plan</a><blockquote>"HACCP team and it consists of multiple members"</blockquote></td>
+          <td>Evidence supports tracking team members, roles, competence, training, scope and approval history. Pain is real but usually tied into broader HACCP tools.</td>
+        </tr>
+        <tr>
+          <td class="rank">26</td>
+          <td class="score">7.3<br><span class="tag strong">Strong</span></td>
+          <td class="product">Food safety objectives/KPI dashboard</td>
+          <td class="clauses">1.1.3-1.1.5</td>
+          <td class="evidence"><a href="https://www.ifsqn.com/forum/index.php/topic/17186-content-and-frequency-of-meetings-and-reviews/#entry51717">Content and Frequency of Meetings and Reviews</a><blockquote>"monthly KPI's and a monthly CAPA meeting"</blockquote></td>
+          <td>Evidence supports objectives, KPIs, meetings, actions, responsibilities, due dates, and staff communication. Could be bundled with management review.</td>
+        </tr>
+        <tr>
+          <td class="rank">27</td>
+          <td class="score">7.2<br><span class="tag strong">Strong</span></td>
+          <td class="product">Non-conforming product quarantine/disposition app</td>
+          <td class="clauses">3.8.1</td>
+          <td class="evidence"><a href="https://www.ifsqn.com/forum/index.php/topic/29770-brc-interpretation-guideline-issue-7/#entry113625">BRC Interpretation Guideline - Issue 7</a><blockquote>"secure storage to prevent accidental release"</blockquote></td>
+          <td>Evidence supports identification, isolation, disposition, rework/destruction/release decisions, authorization, and links to hold and product release workflows.</td>
+        </tr>
+        <tr>
+          <td class="rank">28</td>
+          <td class="score">7.1<br><span class="tag strong">Strong</span></td>
+          <td class="product">Prerequisite programme register</td>
+          <td class="clauses">2.2.1</td>
+          <td class="evidence"><a href="https://www.ifsqn.com/forum/index.php/topic/34171-pre-requisite-procedures-that-could-pass-brc-issue-8/#entry136671">Pre-requisite Procedures that could pass BRC Issue 8</a><blockquote>"control measures and monitoring procedures...clearly documented"</blockquote></td>
+          <td>Evidence shows demand for PRP examples and clarity. A register helps link cleaning, pest, maintenance, hygiene, transport, allergen and purchasing controls.</td>
+        </tr>
+        <tr>
+          <td class="rank">29</td>
+          <td class="score">7.0<br><span class="tag strong">Strong</span></td>
+          <td class="product">Foreign-body detection test and reject log</td>
+          <td class="clauses">4.10.1.1-4.10.7.1</td>
+          <td class="evidence"><a href="https://www.ifsqn.com/forum/index.php/topic/39051-what-size-test-rods-should-be-used-for-testing-metal-detectors/#entry163723">What size test rods should be used?</a><blockquote>"validate the sensitivity with the test pieces? How often?"</blockquote></td>
+          <td>Evidence supports metal detector, X-ray, magnets, filters, sieves, reject checks, sensitivity, frequency, failsafes, and investigation records.</td>
+        </tr>
+        <tr>
+          <td class="rank">30</td>
+          <td class="score">6.9<br><span class="tag strong">Strong</span></td>
+          <td class="product">Glass/brittle-plastic breakage app</td>
+          <td class="clauses">4.9.3.2-4.9.4.3</td>
+          <td class="evidence"><a href="https://www.ifsqn.com/forum/index.php/topic/12393-glass-policy/#entry27886">Glass Policy</a><blockquote>"quarentining the producst and production area"</blockquote></td>
+          <td>Evidence supports item registers, risk-based inspections, breakage reports, affected product assessment, clean-up, restart authorization, and trend records.</td>
+        </tr>
+        <tr>
+          <td class="rank">31</td>
+          <td class="score">6.8<br><span class="tag moderate">Moderate</span></td>
+          <td class="product">Record integrity and retention calculator</td>
+          <td class="clauses">3.3.1-3.3.2</td>
+          <td class="evidence"><a href="https://www.ifsqn.com/forum/index.php/topic/18850-brc-requirement-for-record-keeping-period/#entry54910">BRC Requirement for Record Keeping Period</a><blockquote>"shelf life plus one year"</blockquote></td>
+          <td>Clear recurring question, but the tool is narrower. Best as an add-on to document control or batch record management.</td>
+        </tr>
+        <tr>
+          <td class="rank">32</td>
+          <td class="score">6.7<br><span class="tag moderate">Moderate</span></td>
+          <td class="product">Specification manager</td>
+          <td class="clauses">3.6.1-3.6.4; 9.3.1-9.3.4</td>
+          <td class="evidence"><a href="https://www.ifsqn.com/forum/index.php/topic/31706-brc-clause-364/#entry122917">BRC Clause 3.6.4</a><blockquote>"dated within the last 3 years"</blockquote></td>
+          <td>Evidence supports dated/current raw material, packaging and finished-product specs, approval, revision logs and customer requirements. Often overlaps supplier approval.</td>
+        </tr>
+        <tr>
+          <td class="rank">33</td>
+          <td class="score">6.6<br><span class="tag moderate">Moderate</span></td>
+          <td class="product">Maintenance and temporary-repair tracker</td>
+          <td class="clauses">4.7.1-4.7.6; 8.3.1-8.3.3</td>
+          <td class="evidence"><a href="https://www.ifsqn.com/forum/index.php/topic/48065-what-does-brcgs-say-on-maintenance/#entry207317">What does BRCGS say on maintenance?</a><blockquote>"planned preventive maintenance schedule or condition monitoring system"</blockquote></td>
+          <td>Evidence supports PM schedules, temporary repair control, tool/parts control, release to production, hygiene checks, and high-care/high-risk extensions.</td>
+        </tr>
+        <tr>
+          <td class="rank">34</td>
+          <td class="score">6.5<br><span class="tag moderate">Moderate</span></td>
+          <td class="product">Site zoning, flow and segregation mapper</td>
+          <td class="clauses">4.3.1-4.3.6; 8.1.1-8.1.4</td>
+          <td class="evidence"><a href="https://www.ifsqn.com/forum/index.php/topic/25833-packaging-area-zoning-high-care-vs-low-risk/#entry92579">Packaging Area Zoning - High Care vs Low Risk</a><blockquote>"physical segregation between these areas and other parts"</blockquote></td>
+          <td>Strong pain for sites with high-care/high-risk questions. Market is narrower than HACCP/supplier tools, but visual mapping has clear value.</td>
+        </tr>
+        <tr>
+          <td class="rank">35</td>
+          <td class="score">6.4<br><span class="tag moderate">Moderate</span></td>
+          <td class="product">Product description and intended-use builder</td>
+          <td class="clauses">2.3.1-2.4.1</td>
+          <td class="evidence"><a href="https://www.ifsqn.com/forum/index.php/topic/44696-sqf-2435-intended-use-in-food-and-beverage/#entry190126">SQF 2.4.3.5 - Intended Use</a><blockquote>"It may seem to take a lot of effort"</blockquote></td>
+          <td>Evidence supports composition, packaging, shelf life, consumer use, vulnerable groups and process characteristics. Useful, but likely part of a HACCP suite.</td>
+        </tr>
+        <tr>
+          <td class="rank">36</td>
+          <td class="score">6.3<br><span class="tag moderate">Moderate</span></td>
+          <td class="product">Calibration asset manager</td>
+          <td class="clauses">6.4.1-6.4.4</td>
+          <td class="evidence"><a href="https://www.ifsqn.com/forum/index.php/topic/31894-in-house-calibration-of-scales-and-thermometers/#entry124123">In-house calibration of scales and thermometers</a><blockquote>"documented list of equipment and its location"</blockquote></td>
+          <td>Evidence supports asset lists, due dates, traceability to standards, risk-based frequency, and out-of-tolerance impact assessments. Common but mature category.</td>
+        </tr>
+        <tr>
+          <td class="rank">37</td>
+          <td class="score">6.2<br><span class="tag moderate">Moderate</span></td>
+          <td class="product">High-risk/high-care zone compliance module</td>
+          <td class="clauses">8.1-8.7</td>
+          <td class="evidence"><a href="https://www.ifsqn.com/forum/index.php/topic/44600-how-to-add-a-high-risk-line-in-a-low-risk-factory/#entry189524">How to add a High Risk Line in a Low Risk Factory?</a><blockquote>"personnel shall enter via a specially designated changing facility"</blockquote></td>
+          <td>Direct evidence, but applies only to relevant site types. Good specialist module for segregation, entry, maintenance, cleaning, waste and clothing controls.</td>
+        </tr>
+        <tr>
+          <td class="rank">38</td>
+          <td class="score">6.1<br><span class="tag moderate">Moderate</span></td>
+          <td class="product">Food defence and site-access risk tool</td>
+          <td class="clauses">4.1.4; 4.2.1-4.2.4</td>
+          <td class="evidence"><a href="https://www.ifsqn.com/forum/index.php/topic/45322-brcgs-421-and-422-food-defense/#entry193431">BRCGS 4.2.1 and 4.2.2 Food Defense</a><blockquote>"threat assessment of the risks inherent to the operation"</blockquote></td>
+          <td>Evidence supports threat assessment, sensitive-area mapping, visitor/contractor access, action plans, and training. Good but competes with TACCP templates.</td>
+        </tr>
+        <tr>
+          <td class="rank">39</td>
+          <td class="score">6.0<br><span class="tag moderate">Moderate</span></td>
+          <td class="product">Confidential reporting / whistleblowing portal</td>
+          <td class="clauses">1.1.6</td>
+          <td class="evidence"><a href="https://www.ifsqn.com/forum/index.php/topic/35427-confidential-reporting-form-brc-issue-8-clause-116/#entry143433">Confidential Reporting Form BRC Issue 8</a><blockquote>"some guidance on what to put on one"</blockquote></td>
+          <td>Pain is direct, but simple suggestion boxes and free forms may be enough for many sites. Stronger if bundled with triage and CAPA workflow.</td>
+        </tr>
+        <tr>
+          <td class="rank">40</td>
+          <td class="score">5.9<br><span class="tag moderate">Moderate</span></td>
+          <td class="product">Foreign-material source-control registers</td>
+          <td class="clauses">4.9.2.1-4.9.6.3</td>
+          <td class="evidence"><a href="https://www.ifsqn.com/forum/index.php/topic/25873-register-of-permitted-items/#entry92763">Register of permitted items</a><blockquote>"what items do you interpret to have to be on a register?"</blockquote></td>
+          <td>Evidence supports registers for permitted items, pens, phones, wood, glass, staples, knives and physical contamination controls. Could pair with inspections.</td>
+        </tr>
+        <tr>
+          <td class="rank">41</td>
+          <td class="score">5.8<br><span class="tag moderate">Moderate</span></td>
+          <td class="product">Service-supplier approval tracker</td>
+          <td class="clauses">3.5.3.1-3.5.3.3</td>
+          <td class="evidence"><a href="https://www.ifsqn.com/forum/index.php/topic/18418-35-supplier-and-raw-material-approval-and-performance-monitoring/#entry53138">3.5 Supplier and raw material approval</a><blockquote>"examples of procedures for approval and monitoring of suppliers of services"</blockquote></td>
+          <td>Clear direct pain for pest, laundry, transport, labs, maintenance and waste contractors. Best as a submodule of supplier approval.</td>
+        </tr>
+        <tr>
+          <td class="rank">42</td>
+          <td class="score">5.7<br><span class="tag moderate">Moderate</span></td>
+          <td class="product">Outsourced-processing control tool</td>
+          <td class="clauses">3.5.4.1-3.5.4.6</td>
+          <td class="evidence"><a href="https://www.ifsqn.com/forum/index.php/topic/21212-brc-354-outsourced-processing/#entry64556">BRC 3.5.4. Outsourced Processing</a><blockquote>"Two questions regarding outsourced processing."</blockquote></td>
+          <td>Direct clause pain, including audits, testing on return, GFSI status, traceability and specifications. Market is narrower than general supplier approval.</td>
+        </tr>
+        <tr>
+          <td class="rank">43</td>
+          <td class="score">5.6<br><span class="tag moderate">Moderate</span></td>
+          <td class="product">Goods-in acceptance and supplier-change app</td>
+          <td class="clauses">3.5.2.1-3.5.2.2</td>
+          <td class="evidence"><a href="https://www.ifsqn.com/forum/index.php/topic/36729-coas-for-ingredient-distributor/#entry150753">COA's for ingredient distributor</a><blockquote>"is it an absolute must to have a COA? No."</blockquote></td>
+          <td>Evidence supports COA/COC, visual inspection, sampling, acceptance criteria, risk-based testing, and packaging changes. Strong as receiving module.</td>
+        </tr>
+        <tr>
+          <td class="rank">44</td>
+          <td class="score">5.5<br><span class="tag moderate">Moderate</span></td>
+          <td class="product">Responsibility/deputy matrix</td>
+          <td class="clauses">1.2.1-1.2.3</td>
+          <td class="evidence"><a href="https://www.ifsqn.com/forum/index.php/topic/25767-121-organization-chart-help/#entry120543">1.2.1 - Organization Chart help</a><blockquote>"doesn't specify as to who reports to who"</blockquote></td>
+          <td>Evidence includes NCs and confusion over org charts, names, deputies and reporting lines. Useful but likely simple compared with higher-ranked workflows.</td>
+        </tr>
+        <tr>
+          <td class="rank">45</td>
+          <td class="score">5.4<br><span class="tag moderate">Moderate</span></td>
+          <td class="product">Regulatory, technical and food-fraud horizon-scanning log</td>
+          <td class="clauses">1.1.8; 5.4.2</td>
+          <td class="evidence"><a href="https://www.ifsqn.com/forum/index.php/topic/30247-how-does-everyone-keep-informed-on-regulatory-notifications/#entry115883">How does everyone keep informed on Regulatory Notifications?</a><blockquote>"procedure...too difficult for us to maintain"</blockquote></td>
+          <td>Evidence is direct for source tracking and alerts, but the tool may need content feeds to be compelling. Strong add-on to food fraud and HACCP source libraries.</td>
+        </tr>
+        <tr>
+          <td class="rank">46</td>
+          <td class="score">5.3<br><span class="tag moderate">Moderate</span></td>
+          <td class="product">Positive product release app</td>
+          <td class="clauses">5.7.1</td>
+          <td class="evidence"><a href="https://www.ifsqn.com/forum/index.php/topic/24822-sqf-248-product-release-policy/#entry87465">SQF 2.4.8 - Product Release Policy</a><blockquote>"All products are confirmed as compliant before release"</blockquote></td>
+          <td>Evidence supports hold/release, authorized approvers, batch record review, label checks and disposition. Good workflow, but clause-specific demand is moderate.</td>
+        </tr>
+        <tr>
+          <td class="rank">47</td>
+          <td class="score">5.2<br><span class="tag moderate">Moderate</span></td>
+          <td class="product">NPD, process-change and shelf-life trial tracker</td>
+          <td class="clauses">5.1.1-5.1.4</td>
+          <td class="evidence"><a href="https://www.ifsqn.com/forum/index.php/topic/19066-23-specification-and-product-development-procedure/#entry55902">Specification and Product Development Procedure</a><blockquote>"process in place for the development of new products"</blockquote></td>
+          <td>Evidence supports concept-to-launch records, HACCP reassessment, trials, specs, and shelf-life justification. Demand is real but less frequently surfaced.</td>
+        </tr>
+        <tr>
+          <td class="rank">48</td>
+          <td class="score">5.1<br><span class="tag moderate">Moderate</span></td>
+          <td class="product">HACCP evidence pack exporter</td>
+          <td class="clauses">2.13.1</td>
+          <td class="evidence"><a href="https://www.ifsqn.com/forum/index.php/topic/25432-what-evidence-to-show-proof-of-review-of-haccp-system/#entry90341">What evidence to show proof of review of HACCP system?</a><blockquote>"what evidence to show proof of review"</blockquote></td>
+          <td>The evidence supports export packs, but the product is mostly packaging and aggregation of other HACCP records. Best as a feature inside a HACCP suite.</td>
+        </tr>
+        <tr>
+          <td class="rank">49</td>
+          <td class="score">5.0<br><span class="tag moderate">Moderate</span></td>
+          <td class="product">Personal hygiene control app</td>
+          <td class="clauses">7.2.1-7.2.5</td>
+          <td class="evidence"><a href="https://www.ifsqn.com/forum/index.php/topic/16783-metal-detector-for-blue-plasters-clause-739/#entry47471">Metal detector for blue plasters</a><blockquote>"What exactly are you recording"</blockquote></td>
+          <td>Evidence is specific: plaster registers, detectable plasters, jewellery exceptions, metal detection, and audit observations. Likely a smaller module, not standalone.</td>
+        </tr>
+        <tr>
+          <td class="rank">50</td>
+          <td class="score">4.9<br><span class="tag moderate">Moderate</span></td>
+          <td class="product">Protective clothing and laundry control tool</td>
+          <td class="clauses">7.4.1-7.4.6; 8.7.1-8.7.3</td>
+          <td class="evidence"><a href="https://www.ifsqn.com/forum/index.php/topic/48548-what-are-the-requirements-for-validating-the-effectiveness-of-a-laundry-service-for-protective-clothing/#entry210376">Validating laundry service effectiveness</a><blockquote>"how do YOU validate that the protective clothing is effectively cleaned?"</blockquote></td>
+          <td>Evidence supports supplier approval, laundering validation, swabbing, change frequency, high-risk/high-care rules and glove controls. Narrow but concrete.</td>
+        </tr>
+        <tr>
+          <td class="rank">51</td>
+          <td class="score">4.8<br><span class="tag moderate">Moderate</span></td>
+          <td class="product">Pest management map and trend system</td>
+          <td class="clauses">4.14.1-4.14.12</td>
+          <td class="evidence"><a href="https://www.ifsqn.com/forum/index.php/topic/24487-aib-quarterly-pest-control-trend-report/#entry85322">AIB Quarterly Pest Control Trend Report</a><blockquote>"pest control monitoring stations over time"</blockquote></td>
+          <td>Evidence supports bait maps, station checks, trends and corrective actions. Many sites may rely on contractors, so product fit depends on integration/export.</td>
+        </tr>
+        <tr>
+          <td class="rank">52</td>
+          <td class="score">4.7<br><span class="tag moderate">Moderate</span></td>
+          <td class="product">Dispatch and transport release checklist</td>
+          <td class="clauses">4.16.1-4.16.6</td>
+          <td class="evidence"><a href="https://www.ifsqn.com/forum/index.php/topic/19409-documents-required-to-satisfy-clause-415-dispatch-and-transport/#entry56784">Documents required for Dispatch and Transport</a><blockquote>"Goods Out checklist"</blockquote></td>
+          <td>Evidence supports vehicle hygiene, odour, temperature, contractor assurance, breakdown procedures and dispatch records. Checklist product is straightforward.</td>
+        </tr>
+        <tr>
+          <td class="rank">53</td>
+          <td class="score">4.6<br><span class="tag moderate">Moderate</span></td>
+          <td class="product">Water, ice, steam, air and gas utilities monitor</td>
+          <td class="clauses">4.5.1-4.5.3</td>
+          <td class="evidence"><a href="https://www.ifsqn.com/forum/index.php/topic/17591-section-45-utilities-please-help-with-my-understanding/#entry50250">Section 4.5 - Utilities</a><blockquote>"How do you monitor steam? Any ideas?"</blockquote></td>
+          <td>Evidence supports sampling plans, schematics, potability, steam/air/gas monitoring, and out-of-spec action records. Useful but less broad than top tools.</td>
+        </tr>
+        <tr>
+          <td class="rank">54</td>
+          <td class="score">4.5<br><span class="tag moderate">Moderate</span></td>
+          <td class="product">Quantity, weight and checkweigher tool</td>
+          <td class="clauses">6.3.1-6.3.3</td>
+          <td class="evidence"><a href="https://www.ifsqn.com/forum/index.php/topic/32118-net-weight-verification-frequency/#entry125193">Net Weight Verification Frequency</a><blockquote>"no frequency for small beef packers"</blockquote></td>
+          <td>Evidence supports frequency, legal metrology, online checkweigher verification, tolerance questions and trend records. Strong for packed-weight sectors only.</td>
+        </tr>
+        <tr>
+          <td class="rank">55</td>
+          <td class="score">4.4<br><span class="tag moderate">Moderate</span></td>
+          <td class="product">Process-control and deviation system</td>
+          <td class="clauses">6.1.1-6.1.7</td>
+          <td class="evidence"><a href="https://www.ifsqn.com/forum/index.php/topic/20584-question-regarding-clause-615/#entry61707">Question Regarding Clause 6.1.5</a><blockquote>"equipment failure or deviation of the process from specification"</blockquote></td>
+          <td>Evidence exists for deviations, equipment failure and specs, but the scope is broad and may be covered by NC/CAPA, CCP and process record systems.</td>
+        </tr>
+        <tr>
+          <td class="rank">56</td>
+          <td class="score">4.3<br><span class="tag moderate">Moderate</span></td>
+          <td class="product">Packaging compliance and obsolete-packaging control</td>
+          <td class="clauses">5.5.1-5.5.3</td>
+          <td class="evidence"><a href="https://www.ifsqn.com/forum/index.php/topic/39115-procedure-for-dealing-with-obsolete-packaging-and-labels/#entry164030">Procedure for dealing with obsolete packaging and labels</a><blockquote>"I need help, does anyone have an example?"</blockquote></td>
+          <td>Obsolete label/pack control has direct pain. Food-contact declarations are also evident, but the combined product may be stronger inside label/spec management.</td>
+        </tr>
+        <tr>
+          <td class="rank">57</td>
+          <td class="score">4.2<br><span class="tag moderate">Moderate</span></td>
+          <td class="product">Chemical control register</td>
+          <td class="clauses">4.9.1.1-4.9.1.2</td>
+          <td class="evidence"><a href="https://www.ifsqn.com/forum/index.php/topic/49824-is-it-required-to-print-sds-sheets-or-ok-to-keep-all-in-digital-format/#entry218396">SDS sheets digital or printed?</a><blockquote>"Chemical Inventory List &amp; Risk Assessment"</blockquote></td>
+          <td>Evidence supports SDS access, inventory, storage, use, food-grade status and risk assessment. Useful, but simpler and likely commoditized.</td>
+        </tr>
+        <tr>
+          <td class="rank">58</td>
+          <td class="score">4.1<br><span class="tag moderate">Moderate</span></td>
+          <td class="product">Storage condition and stock-rotation tool</td>
+          <td class="clauses">4.15.1-4.15.6</td>
+          <td class="evidence"><a href="https://www.ifsqn.com/forum/index.php/topic/16505-does-brc-require-full-stock-rotation-as-in-fifo/#entry45820">Does BRC require full stock rotation?</a><blockquote>"Does BRC require full stock rotation?"</blockquote></td>
+          <td>Evidence supports FIFO/FEFO, storage temperature, allergens, taint segregation and part-used packaging, but the pain appears less frequent in the forum sample.</td>
+        </tr>
+        <tr>
+          <td class="rank">59</td>
+          <td class="score">3.9<br><span class="tag niche">Niche</span></td>
+          <td class="product">Medical screening and visitor health declaration tool</td>
+          <td class="clauses">7.3.1-7.3.3</td>
+          <td class="evidence"><a href="https://www.ifsqn.com/forum/index.php/topic/43469-sqf-edition-9-medical-screening/#entry185787">SQF Edition 9 - Medical Screening</a><blockquote>"Do I need to put in place an actual screening questionnaire"</blockquote></td>
+          <td>Direct evidence exists, including visitor/contractor questionnaires and privacy/legal concerns. It is narrow and may be handled by forms or visitor systems.</td>
+        </tr>
+        <tr>
+          <td class="rank">60</td>
+          <td class="score">3.8<br><span class="tag niche">Niche</span></td>
+          <td class="product">Waste and secure-destruction record tool</td>
+          <td class="clauses">4.12.1-4.12.4</td>
+          <td class="evidence"><a href="https://www.ifsqn.com/forum/index.php/topic/27496-brc-v5-trademarked-materials-disposal/#entry103601">BRC v5 - trademarked materials disposal</a><blockquote>"auditors requested records for proving the destruction"</blockquote></td>
+          <td>Evidence supports secure disposal, trademarked-material destruction, quantities and contractor records. Narrow standalone demand, but useful in NC/waste modules.</td>
+        </tr>
+        <tr>
+          <td class="rank">61</td>
+          <td class="score">3.7<br><span class="tag niche">Niche</span></td>
+          <td class="product">Traded-products compliance mini-module</td>
+          <td class="clauses">9.1-9.6</td>
+          <td class="evidence"><a href="https://www.ifsqn.com/forum/index.php/topic/42030-ifs-certification/#entry178240">IFS certification</a><blockquote>"I would start with Traceability!"</blockquote></td>
+          <td>Evidence supports section 9 supplier approval, specs, legality and traceability. Niche unless targeting agents, brokers or sites with traded-product scope.</td>
+        </tr>
+        <tr>
+          <td class="rank">62</td>
+          <td class="score">3.6<br><span class="tag niche">Niche</span></td>
+          <td class="product">Pet food / animal-feed formulation and segregation tool</td>
+          <td class="clauses">5.8.1-5.8.4</td>
+          <td class="evidence"><a href="https://www.ifsqn.com/forum/index.php/topic/45198-can-we-do-pet-food-and-human-food-in-the-same-facility/#entry192610">Can we do pet food and human food in the same facility?</a><blockquote>"Can we do pet food and human food in the same facility?"</blockquote></td>
+          <td>Evidence is direct but niche. Product would need sector-specific legal/formulation depth to be compelling beyond segregation and hazard analysis records.</td>
+        </tr>
+        <tr>
+          <td class="rank">63</td>
+          <td class="score">3.5<br><span class="tag niche">Niche</span></td>
+          <td class="product">Surplus food / charity / animal-feed decision log</td>
+          <td class="clauses">4.13.1-4.13.3</td>
+          <td class="evidence"><a href="https://www.ifsqn.com/forum/index.php/topic/45102-brcgs-private-label-4131-and-4132/#entry192284">BRCGS private label 4.13.1 and 4.13.2</a><blockquote>"approval from your customer"</blockquote></td>
+          <td>Evidence supports customer consent, brand control, charity routing and animal-feed legality, but it is a narrow decision log rather than a broad platform.</td>
+        </tr>
+        <tr>
+          <td class="rank">64</td>
+          <td class="score">3.4<br><span class="tag niche">Niche</span></td>
+          <td class="product">Animal primary conversion control tool</td>
+          <td class="clauses">5.9.1-5.9.4</td>
+          <td class="evidence"><a href="https://www.ifsqn.com/forum/index.php/topic/45387-brcgs-section-59-animal-primary-conversion/#entry193853">BRCGS Section 5.9 - Animal Primary Conversion</a><blockquote>"new section in BRCGS Global Standard for Food Safety Issue 9"</blockquote></td>
+          <td>Direct but highly sector-specific. Useful for meat/seafood primary conversion, live-animal inspection, traceability and post-slaughter time-temperature controls.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>Recommended Product Strategy</h2>
+    <p><strong>Build first:</strong> traceability/mock recall, supplier approval, allergen changeover, CAPA, internal audit, culture, management review, and document control. These have the clearest forum pain, broad applicability, and obvious audit evidence output.</p>
+    <p><strong>Bundle into suites:</strong> HACCP tools should be a connected suite rather than separate point products: team/scope, product description, source library, flow diagrams, hazard analysis, CCP logs, change review, and evidence export.</p>
+    <p><strong>Treat niche modules as add-ons:</strong> high-risk zones, pet food, animal primary conversion, surplus food, medical screening, waste destruction and traded products are valid but should be optional modules or templates unless targeting those sectors directly.</p>
+  </main>
+</body>
+</html>
