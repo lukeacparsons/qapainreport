@@ -1,0 +1,596 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Traceability and Mass-Balance/Mock-Recall Tool Product Brief</title>
+  <style>
+    :root {
+      --ink: #17202a;
+      --muted: #5f6b7a;
+      --line: #d8dee8;
+      --panel: #f7f9fc;
+      --accent: #0f766e;
+      --accent-2: #155e75;
+      --warn: #92400e;
+      --bad: #991b1b;
+      --good-bg: #d1fae5;
+      --blue-bg: #e0f2fe;
+      --warn-bg: #fef3c7;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--ink);
+      background: #fff;
+      line-height: 1.5;
+    }
+    header {
+      padding: 34px 42px 26px;
+      border-bottom: 1px solid var(--line);
+      background: #f3f7fb;
+    }
+    main { padding: 28px 42px 54px; }
+    h1 {
+      margin: 0 0 10px;
+      font-size: 31px;
+      letter-spacing: 0;
+      max-width: 1120px;
+    }
+    h2 {
+      margin: 34px 0 12px;
+      font-size: 21px;
+      letter-spacing: 0;
+    }
+    h3 {
+      margin: 0 0 8px;
+      font-size: 16px;
+      letter-spacing: 0;
+    }
+    p { max-width: 1120px; }
+    a { color: var(--accent-2); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .meta {
+      color: var(--muted);
+      margin: 0;
+      max-width: 1120px;
+    }
+    .lede {
+      max-width: 1120px;
+      font-size: 17px;
+      margin-top: 0;
+    }
+    .summary {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(170px, 1fr));
+      gap: 12px;
+      margin: 22px 0;
+      max-width: 1120px;
+    }
+    .metric {
+      border: 1px solid var(--line);
+      background: #fff;
+      border-radius: 8px;
+      padding: 14px 16px;
+    }
+    .metric b {
+      display: block;
+      font-size: 21px;
+      margin-bottom: 3px;
+    }
+    .metric span {
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .note {
+      max-width: 1120px;
+      padding: 15px 17px;
+      border: 1px solid var(--line);
+      background: var(--panel);
+      border-radius: 8px;
+    }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      max-width: 1120px;
+    }
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      max-width: 1120px;
+    }
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 16px;
+      background: #fff;
+    }
+    .card p { margin: 0; }
+    .card ul, .card ol { margin-bottom: 0; }
+    .evidence {
+      max-width: 1120px;
+      border-collapse: collapse;
+      width: 100%;
+      table-layout: fixed;
+      font-size: 14px;
+      margin-top: 12px;
+    }
+    .evidence th, .evidence td {
+      border: 1px solid var(--line);
+      padding: 10px 12px;
+      vertical-align: top;
+    }
+    .evidence th {
+      text-align: left;
+      background: #eaf1f7;
+      color: #263445;
+      font-size: 13px;
+    }
+    .evidence .source { width: 32%; }
+    .evidence .quote { width: 28%; }
+    .tag {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+    .tag.good { background: var(--good-bg); color: var(--accent); }
+    .tag.blue { background: var(--blue-bg); color: #075985; }
+    .tag.warn { background: var(--warn-bg); color: var(--warn); }
+    blockquote {
+      margin: 0;
+      padding-left: 10px;
+      border-left: 3px solid #9bb6c6;
+      color: #243241;
+    }
+    .flow {
+      max-width: 1120px;
+      display: grid;
+      grid-template-columns: repeat(7, minmax(105px, 1fr));
+      gap: 8px;
+      margin: 14px 0;
+    }
+    .step {
+      min-height: 94px;
+      border: 1px solid var(--line);
+      background: var(--panel);
+      border-radius: 8px;
+      padding: 10px;
+      position: relative;
+    }
+    .step b {
+      display: block;
+      font-size: 13px;
+      margin-bottom: 5px;
+    }
+    .step span {
+      color: var(--muted);
+      font-size: 12px;
+    }
+    .screen-list {
+      max-width: 1120px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+    .screen {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      padding: 14px 16px;
+    }
+    .screen h3 {
+      margin-bottom: 6px;
+      color: #263445;
+    }
+    .screen ul { margin: 7px 0 0; }
+    .logic-table {
+      max-width: 1120px;
+      border-collapse: collapse;
+      width: 100%;
+      font-size: 14px;
+    }
+    .logic-table th, .logic-table td {
+      border: 1px solid var(--line);
+      padding: 10px 12px;
+      vertical-align: top;
+    }
+    .logic-table th {
+      background: #eaf1f7;
+      text-align: left;
+      color: #263445;
+      font-size: 13px;
+    }
+    .small { color: var(--muted); font-size: 12px; }
+    @media (max-width: 980px) {
+      header, main { padding-left: 18px; padding-right: 18px; }
+      .summary, .grid-2, .grid-3, .screen-list { grid-template-columns: 1fr; }
+      .flow { grid-template-columns: 1fr 1fr; }
+      .evidence, .logic-table { display: block; overflow-x: auto; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Traceability and Mass-Balance/Mock-Recall Tool</h1>
+    <p class="meta">Product brief generated 2026-05-24. Scope: IFSQN forum evidence, product workflow, compliance process, and practical AI use cases.</p>
+  </header>
+
+  <main>
+    <section class="summary" aria-label="Executive metrics">
+      <div class="metric"><b>Rank #1</b><span>in the IFSQN evidence scan</span></div>
+      <div class="metric"><b>9.8 / 10</b><span>evidence-backed opportunity score</span></div>
+      <div class="metric"><b>Core risk</b><span>slow or incomplete traceability proof</span></div>
+      <div class="metric"><b>AI role</b><span>assistive, not the source of truth</span></div>
+    </section>
+
+    <p class="lede">This product is an audit-proof workspace for running traceability tests, mock recalls, and mass-balance exercises. It helps a QA or technical manager prove where a material came from, where it went, what quantities were involved, what evidence supports the conclusion, and what gaps need corrective action.</p>
+
+    <section class="note">
+      <p><strong>Important design principle.</strong> The traceability engine should be deterministic. Lot links, dates, quantities, mass balance, sign-offs and audit logs need to be rules-based and auditable. AI should reduce manual document work, suggest links, find gaps, draft reports and explain discrepancies, but users must be able to verify every claim against source records.</p>
+    </section>
+
+    <h2>The Requirement</h2>
+    <div class="grid-2">
+      <div class="card">
+        <h3>What the site must prove</h3>
+        <ul>
+          <li>Forward traceability: raw material, packaging, ingredient or traded-product lot to finished product and customer.</li>
+          <li>Backward traceability: finished product, complaint, dispatch or customer lot back to materials, suppliers and process records.</li>
+          <li>Mass balance: quantities received, used, dispatched, retained, wasted, sampled, reworked or destroyed reconcile.</li>
+          <li>Rework and packaging are included where relevant.</li>
+          <li>The exercise is completed within the site or auditor's expected time window.</li>
+          <li>Evidence is retained and can be reviewed during audit.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Why it is hard in practice</h3>
+        <ul>
+          <li>Records are spread across goods-in, warehouse, production, QA, rework, dispatch and supplier files.</li>
+          <li>Different teams own different parts of the evidence.</li>
+          <li>Manual spreadsheets do not naturally preserve source links and audit trails.</li>
+          <li>Quantity differences need explanation, not just calculation.</li>
+          <li>Real incidents require speed, while audits require proof.</li>
+          <li>Supplier traceability challenges can expose gaps outside the site.</li>
+        </ul>
+      </div>
+    </div>
+
+    <h2>Forum Pain Evidence</h2>
+    <p>The IFSQN evidence is strong because it is not abstract interest in traceability. The posts show direct operational questions, audit anxiety, template demand, manual-system limitations and quantity reconciliation problems.</p>
+
+    <table class="evidence">
+      <thead>
+        <tr>
+          <th class="source">Source</th>
+          <th class="quote">Short quote</th>
+          <th>What it proves about the pain</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><a href="https://www.ifsqn.com/forum/index.php/topic/19995-mock-recall-forward-and-backward-traceability-requirements/#entry59098">Mock Recall - Forward and backward traceability requirements</a></td>
+          <td><blockquote>"unachievable for a manual system"</blockquote></td>
+          <td>Users understand the trace requirement but struggle to complete it quickly with manual records. This is the strongest product signal.</td>
+        </tr>
+        <tr>
+          <td><a href="https://www.ifsqn.com/forum/index.php/topic/17056-product-recall-and-traceability/#entry48277">Product Recall and Traceability</a></td>
+          <td><blockquote>"raw materials...to finished products and vice versa"</blockquote></td>
+          <td>Sites need clarity and proof for both forward and backward traceability, not just a recall contact list.</td>
+        </tr>
+        <tr>
+          <td><a href="https://www.ifsqn.com/forum/index.php/topic/48058-is-a-written-procedure-required-for-existing-products-according-to-brcgs-clause-511/#entry207334">BRCGS traceability records discussion</a></td>
+          <td><blockquote>"include a summary of the documents"</blockquote></td>
+          <td>The exercise needs an evidence index. It is not enough to say the records exist; the test pack must show what records were checked.</td>
+        </tr>
+        <tr>
+          <td><a href="https://www.ifsqn.com/forum/index.php/topic/25330-quantity-checkmass-balance/#entry144464">Quantity check/mass balance</a></td>
+          <td><blockquote>"including primary packaging"</blockquote></td>
+          <td>Mass balance can extend beyond ingredients into packaging and labels, which increases complexity and recall risk.</td>
+        </tr>
+        <tr>
+          <td><a href="https://www.ifsqn.com/forum/index.php/topic/22859-mock-recall-inout-reporting/#entry74011">Mock Recall in/out reporting</a></td>
+          <td><blockquote>"account for discrepancies"</blockquote></td>
+          <td>The painful part is explaining quantity gaps: waste, overfill, sampling, rework, holds, stock on site and other losses.</td>
+        </tr>
+        <tr>
+          <td><a href="https://www.ifsqn.com/forum/index.php/topic/37973-does-anyone-have-any-sample-forms-for-conducting-a-mock-recall/#entry157421">Sample forms for mock recall</a></td>
+          <td><blockquote>"hunt for a better template"</blockquote></td>
+          <td>There is direct demand for practical mock-recall tools and forms, but the better product is a workflow, not just a template.</td>
+        </tr>
+        <tr>
+          <td><a href="https://www.ifsqn.com/forum/index.php/topic/31188-brc-nc-supplier-traceability/#entry120441">BRC NC supplier traceability</a></td>
+          <td><blockquote>"non-conformance was raised"</blockquote></td>
+          <td>Supplier traceability is part of the audit exposure. The product should support supplier trace challenges and response evidence.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>Concrete Pain Scenario</h2>
+    <div class="note">
+      <p>A flour supplier notifies the site that lot F123 may be contaminated. The QA manager needs to prove which deliveries contained F123, which production batches used it, which finished lots were made, which customers received them, what is still in stock, what was wasted or sampled, whether any rework was involved, whether packaging/labels are traceable, and whether the mass balance reconciles. The records are scattered across goods-in, production, warehouse, QA and dispatch files. The auditor or incident team expects a fast, complete answer.</p>
+    </div>
+
+    <h2>Core Product Process</h2>
+    <div class="flow" aria-label="Core process flow">
+      <div class="step"><b>1. Start Test</b><span>Choose raw material, finished lot, packaging lot, complaint or supplier alert.</span></div>
+      <div class="step"><b>2. Define Scope</b><span>Set direction, timeframe, sites, products, suppliers and customer scope.</span></div>
+      <div class="step"><b>3. Gather Records</b><span>Import goods-in, batch sheets, dispatch notes, stock reports and supplier files.</span></div>
+      <div class="step"><b>4. Build Trace Map</b><span>Link lots, batches, rework, stock, dispatches and customers.</span></div>
+      <div class="step"><b>5. Mass Balance</b><span>Calculate quantities in, used, held, dispatched, wasted, sampled and destroyed.</span></div>
+      <div class="step"><b>6. Review Gaps</b><span>Flag missing records, unexplained variance and weak supplier responses.</span></div>
+      <div class="step"><b>7. Export Pack</b><span>Create audit-ready report with evidence index, conclusions, CAPA and sign-off.</span></div>
+    </div>
+
+    <h2>Product Flows</h2>
+    <div class="screen-list">
+      <div class="screen">
+        <h3>Flow A: Raw Material Lot to Customers</h3>
+        <ul>
+          <li>User enters or scans raw material lot.</li>
+          <li>System identifies receipts and supplier records.</li>
+          <li>System links the lot to production batches and rework.</li>
+          <li>Finished lots are traced to dispatches and customers.</li>
+          <li>Mass balance compares receipt quantity with usage, waste, stock and dispatch outcomes.</li>
+          <li>Export answers: "Where did this material go?"</li>
+        </ul>
+      </div>
+      <div class="screen">
+        <h3>Flow B: Finished Product Lot Backward</h3>
+        <ul>
+          <li>User starts from a finished product lot, customer complaint or dispatch note.</li>
+          <li>System finds batch records and production date.</li>
+          <li>Ingredients, packaging, process records, CCP checks and supplier lots are linked.</li>
+          <li>Missing COAs or batch records are flagged.</li>
+          <li>Export answers: "What went into this product?"</li>
+        </ul>
+      </div>
+      <div class="screen">
+        <h3>Flow C: Mock Recall Exercise</h3>
+        <ul>
+          <li>User selects scenario and starts timer.</li>
+          <li>System records participants, roles and objective.</li>
+          <li>Trace map and mass balance are completed.</li>
+          <li>Recall contacts, customer list and stock hold decisions are captured.</li>
+          <li>Gaps become corrective actions.</li>
+          <li>Export produces an auditor-ready mock recall pack.</li>
+        </ul>
+      </div>
+      <div class="screen">
+        <h3>Flow D: Supplier Traceability Challenge</h3>
+        <ul>
+          <li>User selects supplier, material and lot.</li>
+          <li>System sends a structured request for supplier trace evidence.</li>
+          <li>Supplier response is uploaded or entered.</li>
+          <li>System checks completeness against expected evidence.</li>
+          <li>Weak responses create supplier monitoring actions.</li>
+        </ul>
+      </div>
+      <div class="screen">
+        <h3>Flow E: Quantity Reconciliation</h3>
+        <ul>
+          <li>System calculates received quantity.</li>
+          <li>System subtracts production use, waste, samples, rework, stock, returns and destruction.</li>
+          <li>Variance is shown as a percentage and absolute quantity.</li>
+          <li>User must explain or correct unexplained differences.</li>
+          <li>Final reconciliation is locked into the test record.</li>
+        </ul>
+      </div>
+      <div class="screen">
+        <h3>Flow F: CAPA From Trace Gaps</h3>
+        <ul>
+          <li>System flags missing or weak evidence.</li>
+          <li>User assigns owner, due date and corrective action.</li>
+          <li>Actions link back to the trace test.</li>
+          <li>Effectiveness is reviewed in the next mock recall or internal audit.</li>
+          <li>Recurring gaps are escalated.</li>
+        </ul>
+      </div>
+    </div>
+
+    <h2>How AI Is Used</h2>
+    <div class="grid-2">
+      <div class="card">
+        <h3><span class="tag good">High-value AI</span> Document extraction</h3>
+        <p>AI reads PDFs, scans, spreadsheets, delivery notes, COAs, batch sheets, dispatch notes and emails to extract supplier, lot, batch, quantity, product, date and customer data. Every extracted value must link back to its source document with confidence scoring.</p>
+      </div>
+      <div class="card">
+        <h3><span class="tag good">High-value AI</span> Trace-link suggestions</h3>
+        <p>AI suggests relationships such as "flour lot F123 appears on goods-in GR-1042, batch PB-2219, finished lots FP-8831 and FP-8832, and dispatch notes DN-7780 to DN-7784." The user confirms the links.</p>
+      </div>
+      <div class="card">
+        <h3><span class="tag good">High-value AI</span> Missing-evidence checks</h3>
+        <p>AI reviews the test file and flags likely gaps: missing dispatch record, missing supplier trace response, unlinked rework, packaging not included, weak backward traceability or incomplete evidence index.</p>
+      </div>
+      <div class="card">
+        <h3><span class="tag good">High-value AI</span> Discrepancy explanation</h3>
+        <p>The rules engine calculates the variance. AI helps interpret notes and records, for example identifying startup waste, QA samples or overfill that may explain part of the mass-balance gap.</p>
+      </div>
+      <div class="card">
+        <h3><span class="tag blue">Useful AI</span> Report drafting</h3>
+        <p>AI drafts the mock recall report: objective, scenario, timeline, products affected, customers affected, quantity reconciliation, evidence reviewed, gaps found, corrective actions and conclusion.</p>
+      </div>
+      <div class="card">
+        <h3><span class="tag blue">Useful AI</span> Natural language questions</h3>
+        <p>Users can ask: "Where did flour lot F123 go?", "Which customers received finished lot FP-8832?", "What evidence is missing?", or "Why does the mass balance not reconcile?"</p>
+      </div>
+    </div>
+
+    <h2>AI Boundaries</h2>
+    <table class="logic-table">
+      <thead>
+        <tr>
+          <th>Area</th>
+          <th>Should be deterministic</th>
+          <th>AI can assist with</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Lot traceability</td>
+          <td>Confirmed links between records, lots, batches and dispatches.</td>
+          <td>Suggesting possible links from messy documents or filenames.</td>
+        </tr>
+        <tr>
+          <td>Mass balance</td>
+          <td>Quantity arithmetic, variance percentage, tolerance rules and locked final values.</td>
+          <td>Interpreting notes that explain waste, samples, rework or stock movements.</td>
+        </tr>
+        <tr>
+          <td>Evidence</td>
+          <td>Source files, timestamps, user approvals and audit trail.</td>
+          <td>Summarising documents and extracting key fields with source references.</td>
+        </tr>
+        <tr>
+          <td>Recall decisions</td>
+          <td>Human decision, documented authorisation and escalation rules.</td>
+          <td>Preparing decision-support summaries and contact lists.</td>
+        </tr>
+        <tr>
+          <td>CAPA</td>
+          <td>Owner, due date, approval, closure and effectiveness evidence.</td>
+          <td>Drafting root cause, corrective action and verification wording for human review.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>Product Screens</h2>
+    <div class="grid-3">
+      <div class="card">
+        <h3>Trace Test Dashboard</h3>
+        <p>Open tests, overdue mock recalls, average completion time, unresolved gaps, mass-balance failures and supplier trace challenges.</p>
+      </div>
+      <div class="card">
+        <h3>Scenario Builder</h3>
+        <p>Select raw material, packaging lot, finished lot, complaint, supplier alert or traded product and define trace direction and scope.</p>
+      </div>
+      <div class="card">
+        <h3>Document Inbox</h3>
+        <p>Upload batch sheets, COAs, delivery notes, dispatch notes, stock reports and supplier responses for AI extraction and user approval.</p>
+      </div>
+      <div class="card">
+        <h3>Trace Map</h3>
+        <p>Visual chain from supplier lots through receipts, batches, rework, finished goods, stock, dispatches and customers.</p>
+      </div>
+      <div class="card">
+        <h3>Mass Balance</h3>
+        <p>Quantity in, used, dispatched, retained, wasted, sampled, reworked, destroyed and unexplained variance.</p>
+      </div>
+      <div class="card">
+        <h3>Gap Review</h3>
+        <p>Missing evidence, weak links, unexplained variances, late supplier responses and generated corrective actions.</p>
+      </div>
+      <div class="card">
+        <h3>Supplier Challenge</h3>
+        <p>Request supplier trace evidence, record response timing, review completeness and link results to supplier monitoring.</p>
+      </div>
+      <div class="card">
+        <h3>Audit Pack Export</h3>
+        <p>PDF or HTML summary with objective, method, timeline, trace map, mass balance, evidence list, gaps, CAPA and sign-off.</p>
+      </div>
+      <div class="card">
+        <h3>Settings and Tolerances</h3>
+        <p>Time target, mass-balance variance tolerance, required evidence types, product categories, rework rules and approval levels.</p>
+      </div>
+    </div>
+
+    <h2>Minimum Viable Product</h2>
+    <div class="grid-2">
+      <div class="card">
+        <h3>MVP scope</h3>
+        <ul>
+          <li>Manual test setup with timer.</li>
+          <li>Lot, batch, product, supplier, customer and dispatch records.</li>
+          <li>Document upload and evidence checklist.</li>
+          <li>Trace map for forward and backward traceability.</li>
+          <li>Mass-balance worksheet with variance calculation.</li>
+          <li>Gap list and corrective actions.</li>
+          <li>Audit-pack export.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>AI in MVP</h3>
+        <ul>
+          <li>Extract fields from uploaded records.</li>
+          <li>Suggest trace links for user confirmation.</li>
+          <li>Detect missing required evidence.</li>
+          <li>Draft report narrative.</li>
+          <li>Draft CAPA wording from identified gaps.</li>
+          <li>Answer questions over confirmed test data.</li>
+        </ul>
+      </div>
+    </div>
+
+    <h2>Data Model</h2>
+    <table class="logic-table">
+      <thead>
+        <tr>
+          <th>Object</th>
+          <th>Example fields</th>
+          <th>Purpose</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Trace test</td>
+          <td>Scenario, start time, end time, scope, owner, status, conclusion.</td>
+          <td>Controls the exercise and audit record.</td>
+        </tr>
+        <tr>
+          <td>Material lot</td>
+          <td>Supplier, lot number, receipt date, quantity, COA, approval status.</td>
+          <td>Starting point for forward traceability.</td>
+        </tr>
+        <tr>
+          <td>Production batch</td>
+          <td>Batch number, product, date, inputs, outputs, rework, losses.</td>
+          <td>Links material lots to finished goods.</td>
+        </tr>
+        <tr>
+          <td>Finished lot</td>
+          <td>Product code, lot, quantity produced, stock, dispatches, customers.</td>
+          <td>Starting point for backward traceability and customer exposure.</td>
+        </tr>
+        <tr>
+          <td>Mass-balance line</td>
+          <td>Received, used, dispatched, stock, waste, samples, rework, variance.</td>
+          <td>Proves quantity reconciliation.</td>
+        </tr>
+        <tr>
+          <td>Evidence item</td>
+          <td>Document type, source file, extracted values, confidence, approver.</td>
+          <td>Connects each conclusion to source proof.</td>
+        </tr>
+        <tr>
+          <td>Gap/CAPA</td>
+          <td>Finding, severity, owner, due date, action, closure evidence.</td>
+          <td>Turns weak trace-test outcomes into improvements.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>Audit Pack Output</h2>
+    <div class="note">
+      <p>The final export should answer the auditor's likely questions without forcing the QA manager to assemble a folder manually. It should include the test objective, test date, start and end time, participants, scenario, trace direction, affected lots, affected customers, supplier records, production records, rework, stock on hand, dispatches, mass-balance calculation, discrepancies, evidence index, corrective actions, conclusion and sign-off.</p>
+    </div>
+
+    <h2>Positioning</h2>
+    <div class="grid-2">
+      <div class="card">
+        <h3>Clear positioning</h3>
+        <p><strong>AI-assisted traceability testing that finds records, links evidence, checks gaps, reconciles quantities and drafts an auditor-ready mock recall pack.</strong></p>
+      </div>
+      <div class="card">
+        <h3>What not to claim</h3>
+        <p>Do not position it as "AI decides your recall." Recall decisions, regulatory notification and product disposition must remain controlled human decisions with documented approval.</p>
+      </div>
+    </div>
+
+    <p class="small">Source basis: IFSQN MCP search results cited in the evidence table. Quotes are short excerpts from linked forum posts; interpretations are product-analysis synthesis.</p>
+  </main>
+</body>
+</html>
