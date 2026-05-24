@@ -105,11 +105,62 @@
       padding-left: 24px;
     }
     ol.top li { margin: 4px 0; break-inside: avoid; }
+    .deep-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 18px;
+      max-width: 1120px;
+      margin-top: 14px;
+    }
+    .deep-card {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      padding: 18px 18px 16px;
+    }
+    .deep-card h3 {
+      margin: 0 0 6px;
+      font-size: 18px;
+    }
+    .deep-card .rankline {
+      margin: 0 0 12px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .deep-card h4 {
+      margin: 14px 0 6px;
+      font-size: 14px;
+      color: #263445;
+    }
+    .evidence-list {
+      margin: 8px 0 0;
+      padding-left: 20px;
+    }
+    .evidence-list li { margin: 7px 0; }
+    .reasoning {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-top: 12px;
+    }
+    .reasoning div {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 12px 14px;
+    }
+    .reasoning p { margin: 0; }
+    .search-note {
+      max-width: 1120px;
+      color: var(--muted);
+      font-size: 13px;
+    }
     @media (max-width: 900px) {
       header, main { padding-left: 18px; padding-right: 18px; }
       .summary { grid-template-columns: 1fr 1fr; }
       table { display: block; overflow-x: auto; white-space: normal; }
       ol.top { columns: 1; }
+      .reasoning { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -144,6 +195,140 @@
       <li>Food fraud, vulnerability and claims tool</li>
       <li>HACCP review/change-impact workflow</li>
     </ol>
+
+    <h2>Deep-Dive Evidence: Top 5</h2>
+    <p class="search-note">Additional targeted IFSQN MCP searches were run for the top five ideas. I looked for repeated signs of pain: non-conformances, auditor challenges, template requests, confusion over clause interpretation, and operational details that a small product could reliably systematise.</p>
+
+    <section class="deep-grid" aria-label="Top-five deep-dive evidence">
+      <article class="deep-card">
+        <h3>1. Traceability and mass-balance/mock-recall tool</h3>
+        <p class="rankline">Score 9.8. Highest confidence because the forum evidence combines audit timing pressure, manual-system pain, quantity reconciliation, packaging scope, and supplier traceability.</p>
+        <h4>Additional evidence</h4>
+        <ol class="evidence-list">
+          <li><a href="https://www.ifsqn.com/forum/index.php/topic/19995-mock-recall-forward-and-backward-traceability-requirements/#entry59098">Mock Recall - Forward and backward traceability requirements</a>: the thread asks whether one exercise must prove both directions and how to meet the four-hour expectation. Quote: <blockquote>"unachievable for a manual system"</blockquote></li>
+          <li><a href="https://www.ifsqn.com/forum/index.php/topic/17056-product-recall-and-traceability/#entry48277">Product Recall and Traceability</a>: a site reports a weak audit outcome and confusion over tracing from raw material to finished product and back. Quote: <blockquote>"raw materials...to finished products and vice versa"</blockquote></li>
+          <li><a href="https://www.ifsqn.com/forum/index.php/topic/48058-is-a-written-procedure-required-for-existing-products-according-to-brcgs-clause-511/#entry207334">BRCGS traceability records discussion</a>: the answer stresses keeping a summary of linked documents used in the test. Quote: <blockquote>"include a summary of the documents"</blockquote></li>
+          <li><a href="https://www.ifsqn.com/forum/index.php/topic/25330-quantity-checkmass-balance/#entry144464">Quantity check/mass balance</a>: the scope expands beyond ingredients to packaging reconciliation. Quote: <blockquote>"including primary packaging"</blockquote></li>
+          <li><a href="https://www.ifsqn.com/forum/index.php/topic/22859-mock-recall-inout-reporting/#entry74011">Mock Recall in/out reporting</a>: the operational issue is not just tracing lots, but explaining waste, overfill, QA samples and other quantity gaps. Quote: <blockquote>"account for discrepancies"</blockquote></li>
+          <li><a href="https://www.ifsqn.com/forum/index.php/topic/37973-does-anyone-have-any-sample-forms-for-conducting-a-mock-recall/#entry157421">Sample forms for mock recall</a>: direct template demand appears alongside dissatisfaction with existing consultant forms. Quote: <blockquote>"hunt for a better template"</blockquote></li>
+          <li><a href="https://www.ifsqn.com/forum/index.php/topic/31188-brc-nc-supplier-traceability/#entry120441">BRC NC supplier traceability</a>: supplier traceability is a real audit exposure. Quote: <blockquote>"non-conformance was raised"</blockquote></li>
+        </ol>
+        <div class="reasoning">
+          <div>
+            <h4>Why this supports the rank</h4>
+            <p>The evidence is unusually concrete. Users are not only asking what the clause means; they describe failed or difficult audits, four-hour completion pressure, manual records that do not scale, and reconciliation problems that cut across production, rework, waste, QA samples and printed packaging. That breadth makes the buyer pain measurable.</p>
+          </div>
+          <div>
+            <h4>Product implications</h4>
+            <p>The product should include scenario setup, forward/backward tracing, a live timer, linked-record checklists, mass-balance reconciliation, discrepancy explanations, rework and waste accounting, supplier traceability request packets, and an audit-ready export.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="deep-card">
+        <h3>2. Supplier approval and monitoring portal</h3>
+        <p class="rankline">Score 9.7. Very high confidence because the evidence spans approval routes, questionnaires, supplier audits, certification, low-risk decisions, NC closure, registers, change notifications, and traceability verification.</p>
+        <h4>Additional evidence</h4>
+        <ol class="evidence-list">
+          <li><a href="https://www.ifsqn.com/forum/index.php/topic/27178-brc7-supplier-approval-questionnaires/#entry100175">BRC7 supplier approval questionnaires</a>: users need to decide which approval route applies and how often to reissue questionnaires. Quote: <blockquote>"based on risk"</blockquote></li>
+          <li><a href="https://www.ifsqn.com/forum/index.php/topic/32648-closing-nc-on-clause-3512-supplier-approval-and-monitoring/#entry128197">Closing NC on clause 3.5.1.2</a>: the topic is explicitly about closing a supplier approval non-conformance. Quote: <blockquote>"Closing NC"</blockquote></li>
+          <li><a href="https://www.ifsqn.com/forum/index.php/topic/24641-confused-with-the-term-low-risk-supplier/#entry86610">Confused with low-risk supplier</a>: repeated uncertainty exists around low-risk classifications and when questionnaires are acceptable. Quote: <blockquote>"low risk only"</blockquote></li>
+          <li><a href="https://www.ifsqn.com/forum/index.php/topic/19144-is-it-a-requirement-to-audit-suppliers/#entry55809">Is it a requirement to audit suppliers?</a>: the evidence points to periodic reapproval and questionnaire cycles. Quote: <blockquote>"re-issue a fresh questionnaire"</blockquote></li>
+          <li><a href="https://www.ifsqn.com/forum/index.php/topic/19709-supplier-approval-line-in-the-sand/#entry57727">Supplier approval line in the sand</a>: forum guidance distinguishes audits, certificates and questionnaires as approval routes. Quote: <blockquote>"Where approval is based on questionnaires"</blockquote></li>
+          <li><a href="https://www.ifsqn.com/forum/index.php/topic/29082-approval-acceptance-procedure-for-sourcing-packaging/#entry110370">Approval acceptance procedure for packaging</a>: packaging supplier approval brings its own reapproval cadence and traceability expectations. Quote: <blockquote>"supplier questionnaire every three years"</blockquote></li>
+          <li><a href="https://www.ifsqn.com/forum/index.php/topic/39930-brcgs8-3512-risk-assessment-raw-material-required/#entry176412">BRCGS 3.5.1.2 risk assessment</a>: sites have to define defensible local rules for approval validity. Quote: <blockquote>"define that for your own site"</blockquote></li>
+        </ol>
+        <div class="reasoning">
+          <div>
+            <h4>Why this supports the rank</h4>
+            <p>The evidence shows a recurring compliance workflow rather than a one-off question. Users need a defensible basis for supplier status, the right approval route, document currency, questionnaire cadence, exceptions, monitoring and NC closure. It is broad enough for many sites and specific enough for product automation.</p>
+          </div>
+          <div>
+            <h4>Product implications</h4>
+            <p>The portal should provide supplier/material risk routing, GFSI certificate validation, audit and questionnaire records, expiry alerts, approved-supplier status, change-notification capture, supplier performance review, exception approval, and traceability challenge records.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="deep-card">
+        <h3>3. Allergen matrix and changeover validator</h3>
+        <p class="rankline">Score 9.6. Very high confidence because the evidence covers both system design and shop-floor validation: raw-material allergens, matrices, cross-contact routes, scheduling, cleaning validation, swabbing and lab evidence.</p>
+        <h4>Additional evidence</h4>
+        <ol class="evidence-list">
+          <li><a href="https://www.ifsqn.com/forum/index.php/topic/34714-looking-for-allergen-control-policy-sop-and-supporting-documents/#entry139441">Allergen control policy/SOP request</a>: direct demand for allergen policy, SOP and supporting documents. Quote: <blockquote>"Allergen Control Policy SOP"</blockquote></li>
+          <li><a href="https://www.ifsqn.com/forum/index.php/topic/34714-looking-for-allergen-control-policy-sop-and-supporting-documents/#entry139468">Allergen control supporting documents</a>: guidance moves from policy into contamination routes and process flow controls. Quote: <blockquote>"routes of contamination"</blockquote></li>
+          <li><a href="https://www.ifsqn.com/forum/index.php/topic/35547-allergen-risk-assessment-and-management/#entry144100">Allergen risk assessment and management</a>: users ask for a recognised format covering raw material status, suppliers, matrices and monitoring. Quote: <blockquote>"globally recognized format"</blockquote></li>
+          <li><a href="https://www.ifsqn.com/forum/index.php/topic/20629-allergen-risk-analysis-and-matrix/#entry61940">Allergen risk analysis and matrix</a>: repeated artifact demand appears for a changeover matrix. Quote: <blockquote>"allergen changeover matrix"</blockquote></li>
+          <li><a href="https://www.ifsqn.com/forum/index.php/topic/48577-allergen-cleaning-validation-method/#entry210297">Allergen cleaning validation method</a>: users need practical validation design using hard-to-clean areas and swabs. Quote: <blockquote>"validate your cleaning regime"</blockquote></li>
+          <li><a href="https://www.ifsqn.com/forum/index.php/topic/48550-what-procedures-should-be-followed-for-cleaning-validation-to-comply-with-tesco-requirements/#entry210174">Cleaning validation to comply with Tesco requirements</a>: evidence needs to prove that the production line is clear after changeover. Quote: <blockquote>"proof that your production line is free"</blockquote></li>
+          <li><a href="https://www.ifsqn.com/forum/index.php/topic/49578-precautionary-allergen-labelling/#entry217347">Precautionary allergen labelling</a>: label decisions depend on validated cleaning, scheduling and supplier information. Quote: <blockquote>"validated cleaning procedure"</blockquote></li>
+          <li><a href="https://www.ifsqn.com/forum/index.php/topic/38227-allergen-cleaning-validation-for-soy-sauce-soya/#entry158846">Allergen cleaning validation for soy sauce</a>: edge cases show why simple checklists are not enough. Quote: <blockquote>"new allergen to our process"</blockquote></li>
+        </ol>
+        <div class="reasoning">
+          <div>
+            <h4>Why this supports the rank</h4>
+            <p>The forum evidence repeatedly asks for formats, matrices and validation methods. The pain is high stakes because allergen mistakes can create recalls, and the data model is naturally structured: materials, allergens, products, lines, changeovers, cleaning methods and evidence.</p>
+          </div>
+          <div>
+            <h4>Product implications</h4>
+            <p>The product should maintain a raw-material allergen database, finished-product matrix, site allergen list, cross-contact route assessment, scheduling/changeover rules, cleaning validation protocols, swab results, rework restrictions, PAL rationale and label-review handoff.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="deep-card">
+        <h3>4. Root-cause and CAPA tracker</h3>
+        <p class="rankline">Score 9.5. Very high confidence because the forum data contains direct NC, rejected RCA, recurrence and certificate-risk language, not just generic interest in action tracking.</p>
+        <h4>Additional evidence</h4>
+        <ol class="evidence-list">
+          <li><a href="https://www.ifsqn.com/forum/index.php/topic/33306-can-you-help-with-my-understanding-of-brc-issue-8-clause-373/#entry131878">Understanding BRC clause 3.7.3</a>: users need a procedure covering triggers, trained staff, methods, records and verification. Quote: <blockquote>"procedure for the completion"</blockquote></li>
+          <li><a href="https://www.ifsqn.com/forum/index.php/topic/44698-brc-1112-recurring-nonconformity/#entry190049">BRC 1.1.12 recurring nonconformity</a>: direct recurrence pain and request for help with corrective action. Quote: <blockquote>"Can you help me"</blockquote></li>
+          <li><a href="https://www.ifsqn.com/forum/index.php/topic/30057-need-help-with-root-cause-analysis-and-corrective-action/#entry114985">Need help with RCA and corrective action</a>: direct template demand for a practical CA form. Quote: <blockquote>"simple form for corrective action"</blockquote></li>
+          <li><a href="https://www.ifsqn.com/forum/index.php/topic/46189-how-does-root-cause-analysis-rejection-affect-brc-certificate/#entry197793">RCA rejection and BRC certificate</a>: the auditor repeatedly rejected the RCA, creating certification anxiety. Quote: <blockquote>"rejected it"</blockquote></li>
+          <li><a href="https://www.ifsqn.com/forum/index.php/topic/46261-sqf-2531-corrective-actions-and-root-cause/#entry198249">Corrective actions and root cause</a>: users are pushed from correction toward recurrence prevention. Quote: <blockquote>"prevent recurrence"</blockquote></li>
+          <li><a href="https://www.ifsqn.com/forum/index.php/topic/42439-cleaning-of-nylon-brushes-used-for-food-packing-equipment/#entry180253">Cleaning of nylon brushes</a>: a completed 8D still failed because evidence and document updates were weak. Quote: <blockquote>"without any evidence"</blockquote></li>
+          <li><a href="https://www.ifsqn.com/forum/index.php/topic/31529-root-cause-evidence-for-sqf-nc/#entry122120">Root cause evidence for NC</a>: users ask what evidence should accompany an RCA response. Quote: <blockquote>"Root Cause Evidence"</blockquote></li>
+          <li><a href="https://www.ifsqn.com/forum/index.php/topic/16460-worm-found-in-product-how-to-verify-corrective-action/#entry45643">How to verify corrective action</a>: the response stresses objective proof after implementation. Quote: <blockquote>"actual objective evidence"</blockquote></li>
+        </ol>
+        <div class="reasoning">
+          <div>
+            <h4>Why this supports the rank</h4>
+            <p>This is one of the strongest problem signals because users report failed RCA submissions, recurring NCs and uncertainty over evidence. The workflow is universal across clauses, which gives the product more expansion potential than a single-clause utility.</p>
+          </div>
+          <div>
+            <h4>Product implications</h4>
+            <p>The tracker should separate containment, correction, root cause, corrective action and preventive action; support 5 Whys/fishbone/8D; assign owners and dates; require objective evidence; trigger effectiveness checks; and link repeat findings to prior audit NCs.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="deep-card">
+        <h3>5. Internal audit and factory-inspection app</h3>
+        <p class="rankline">Score 9.4. Very high confidence because the evidence covers scheduling, risk-based frequency, auditor competence, independence, templates, monthly hygiene/fabrication inspections, findings, corrective actions and management review.</p>
+        <h4>Additional evidence</h4>
+        <ol class="evidence-list">
+          <li><a href="https://www.ifsqn.com/forum/index.php/topic/42671-internal-audit-schedule-as-per-brc-issue-8/#entry181610">Internal Audit schedule as per BRC Issue 8</a>: the answer summarises schedule, four-date spread, competent independent auditors, corrective actions and routine inspections. Quote: <blockquote>"spread these out over at least four dates"</blockquote></li>
+          <li><a href="https://www.ifsqn.com/forum/index.php/topic/40687-non-conformance-341-internal-audit/#entry171917">Non-conformance 3.4.1 internal audit</a>: the pain is an actual NC around procedure and schedule clarity. Quote: <blockquote>"defined schedule including future events"</blockquote></li>
+          <li><a href="https://www.ifsqn.com/forum/index.php/topic/35763-anyone-have-a-template-for-internal-fabrication-and-hygiene-audit/#entry145363">Template for fabrication and hygiene audit</a>: direct demand for a factory inspection template. Quote: <blockquote>"example/template for internal fabrication"</blockquote></li>
+          <li><a href="https://www.ifsqn.com/forum/index.php/topic/30857-monthly-fabrication-inspection/#entry118867">Monthly Fabrication Inspection</a>: guidance ties inspections to GMP, sanitation and post-maintenance checks. Quote: <blockquote>"hygiene inspections"</blockquote></li>
+          <li><a href="https://www.ifsqn.com/forum/index.php/topic/29260-help-with-environmental-hygiene-audit/#entry111185">Help with Environmental Hygiene Audit</a>: the discussion clarifies monthly minimums in open product areas and risk-based frequency. Quote: <blockquote>"based on risk"</blockquote></li>
+          <li><a href="https://www.ifsqn.com/forum/index.php/topic/18797-internal-auditor-training-requirements-brc-version-6/#entry58842">Internal auditor training requirements</a>: users need a defensible interpretation of trained and competent. Quote: <blockquote>"appropriately trained"</blockquote></li>
+          <li><a href="https://www.ifsqn.com/forum/index.php/topic/21702-internal-audit-help/#entry67166">Internal Audit - HELP</a>: the answer stresses independence from the department being audited. Quote: <blockquote>"not audit their own department"</blockquote></li>
+          <li><a href="https://www.ifsqn.com/forum/index.php/topic/41731-internal-audit-pocedure/#entry176748">Internal Audit Procedure</a>: findings need timelines, assignment, verification and management-review visibility. Quote: <blockquote>"reviewed during management reviews"</blockquote></li>
+          <li><a href="https://www.ifsqn.com/forum/index.php/topic/24459-improvement-ideas-sought-for-ineffective-internal-audit-program/#entry85139">Ineffective internal audit program</a>: the answer flags the fundamental-clause consequence and need for checklists. Quote: <blockquote>"Checklist, checklist, checklist"</blockquote></li>
+        </ol>
+        <div class="reasoning">
+          <div>
+            <h4>Why this supports the rank</h4>
+            <p>The evidence is not limited to a calendar. It shows a complete compliance loop: plan the year, justify frequency by risk, assign independent competent auditors, use clause-based checklists, record findings, close CAPA, perform routine hygiene/fabrication inspections and summarise results for management review.</p>
+          </div>
+          <div>
+            <h4>Product implications</h4>
+            <p>The app should include an annual audit schedule, risk-frequency logic, auditor competency and independence checks, clause/checklist templates, hygiene and fabrication inspection forms, finding severity, CAPA linkage, overdue dashboards and management-review summaries.</p>
+          </div>
+        </div>
+      </article>
+    </section>
 
     <h2>Ranked Evidence Table</h2>
     <table>
