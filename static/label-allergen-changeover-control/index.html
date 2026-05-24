@@ -1,0 +1,804 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Forum Research Report: Label and Allergen Changeover Product Slice</title>
+  <style>
+    :root {
+      --ink: #17202a;
+      --muted: #5d6675;
+      --line: #d8dee8;
+      --soft: #f5f7fa;
+      --green: #17745b;
+      --red: #a33a2c;
+      --blue: #245f9d;
+      --amber: #8a5b12;
+      --panel: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: #f0f3f6;
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.55;
+    }
+
+    main {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 40px 22px 64px;
+    }
+
+    header {
+      padding: 36px 0 26px;
+      border-bottom: 3px solid var(--ink);
+    }
+
+    h1 {
+      margin: 0;
+      max-width: 900px;
+      font-size: 42px;
+      line-height: 1.08;
+      letter-spacing: 0;
+    }
+
+    .subtitle {
+      max-width: 820px;
+      margin: 16px 0 0;
+      color: var(--muted);
+      font-size: 18px;
+    }
+
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 22px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid var(--line);
+      background: #fff;
+      border-radius: 999px;
+      padding: 5px 10px;
+    }
+
+    section {
+      padding: 34px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    h2 {
+      margin: 0 0 16px;
+      font-size: 27px;
+      line-height: 1.2;
+      letter-spacing: 0;
+    }
+
+    h3 {
+      margin: 26px 0 10px;
+      font-size: 18px;
+      line-height: 1.25;
+      letter-spacing: 0;
+    }
+
+    p {
+      margin: 10px 0;
+    }
+
+    a {
+      color: var(--blue);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 2px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 16px;
+    }
+
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 18px;
+    }
+
+    .span-4 {
+      grid-column: span 4;
+    }
+
+    .span-6 {
+      grid-column: span 6;
+    }
+
+    .span-8 {
+      grid-column: span 8;
+    }
+
+    .span-12 {
+      grid-column: span 12;
+    }
+
+    .callout {
+      border-left: 5px solid var(--green);
+      background: #eef7f3;
+      padding: 16px 18px;
+      margin: 18px 0;
+    }
+
+    .warning {
+      border-left-color: var(--red);
+      background: #fff1ee;
+    }
+
+    .quote {
+      margin: 0;
+      padding: 14px 16px;
+      border-left: 4px solid var(--blue);
+      background: #f8fbff;
+      color: #263446;
+      font-size: 15px;
+    }
+
+    .quote cite {
+      display: block;
+      margin-top: 8px;
+      color: var(--muted);
+      font-style: normal;
+      font-size: 13px;
+    }
+
+    .tag {
+      display: inline-block;
+      margin: 4px 5px 0 0;
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: #e8edf4;
+      color: #29384d;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    th, td {
+      vertical-align: top;
+      padding: 12px 14px;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      font-size: 14px;
+    }
+
+    th {
+      background: #e9eef4;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0;
+    }
+
+    tr:last-child td {
+      border-bottom: 0;
+    }
+
+    ul, ol {
+      padding-left: 22px;
+    }
+
+    li {
+      margin: 8px 0;
+    }
+
+    .score {
+      display: inline-block;
+      min-width: 84px;
+      padding: 4px 8px;
+      border-radius: 6px;
+      color: #fff;
+      font-size: 12px;
+      font-weight: 700;
+      text-align: center;
+    }
+
+    .score.high {
+      background: var(--red);
+    }
+
+    .score.med {
+      background: var(--amber);
+    }
+
+    .score.low {
+      background: var(--green);
+    }
+
+    .workflow {
+      counter-reset: step;
+      display: grid;
+      gap: 12px;
+    }
+
+    .step {
+      position: relative;
+      padding: 14px 16px 14px 52px;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+    }
+
+    .step::before {
+      counter-increment: step;
+      content: counter(step);
+      position: absolute;
+      left: 15px;
+      top: 14px;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--ink);
+      color: #fff;
+      display: grid;
+      place-items: center;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .small {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .refs li {
+      overflow-wrap: anywhere;
+    }
+
+    @media (max-width: 800px) {
+      main {
+        padding: 24px 14px 44px;
+      }
+
+      h1 {
+        font-size: 31px;
+      }
+
+      .span-4, .span-6, .span-8 {
+        grid-column: span 12;
+      }
+
+      table, thead, tbody, th, td, tr {
+        display: block;
+      }
+
+      thead {
+        display: none;
+      }
+
+      tr {
+        border-bottom: 1px solid var(--line);
+      }
+
+      td {
+        border-bottom: 0;
+      }
+
+      td::before {
+        content: attr(data-label);
+        display: block;
+        color: var(--muted);
+        font-size: 12px;
+        font-weight: 700;
+        text-transform: uppercase;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>Forum Research Report: A Narrow Product Slice for Label and Allergen Changeover Control</h1>
+      <p class="subtitle">A synthesis of IFSQN forum evidence into a product wedge for small and mid-sized food manufacturers that need to prove "right label, right product" without drowning QA and operators in paper.</p>
+      <div class="meta">
+        <span class="pill">Source: IFSQN MCP vector store</span>
+        <span class="pill">Focus: Labeling, allergens, SQF, co-manufacturing</span>
+        <span class="pill">Prepared: 2026-05-23</span>
+      </div>
+    </header>
+
+    <section>
+      <h2>Executive Thesis</h2>
+      <div class="callout">
+        <strong>Build a mobile-first "LabelGate" workflow for high-mix food plants:</strong> a lightweight system that gates every startup, product changeover, label roll change, hand-labeling event, and customer-label receipt against an approved label library, then produces an audit-ready evidence packet.
+      </div>
+      <p>The highest-value niche is not a full food safety management system. The wedge is narrower: label and allergen verification at production events. The forum evidence shows this is painful because it sits at the intersection of recall risk, audit pressure, high SKU complexity, weak paper records, operator signoffs, and customer-provided labels.</p>
+      <p>Ideal first customer: SQF-certified or SQF-aspiring bakeries, snack producers, nut butter plants, and co-packers with 50 to 500 SKUs, multiple allergens, preprinted label rolls, small batches, customer-specific labels, and one overloaded QA lead.</p>
+    </section>
+
+    <section>
+      <h2>Research Method</h2>
+      <p>I searched the IFSQN MCP vector store using targeted queries around label reconciliation, allergen changeovers, customer-provided labels, SQF 9 requirements, paper verification, high-mix bakeries, and label inventory reconciliation. The evidence below uses direct forum excerpts as directional qualitative research, not as a statistical survey.</p>
+      <div class="grid">
+        <div class="card span-4">
+          <h3>Search Targets</h3>
+          <span class="tag">label reconciliation</span>
+          <span class="tag">allergen changeover</span>
+          <span class="tag">customer labels</span>
+          <span class="tag">SQF 9</span>
+          <span class="tag">bakery</span>
+          <span class="tag">paper records</span>
+        </div>
+        <div class="card span-4">
+          <h3>Primary Signal</h3>
+          <p>Members are not asking for generic education. They ask what records to keep, who signs, how to avoid missed checks, and how to satisfy auditors while production keeps moving.</p>
+        </div>
+        <div class="card span-4">
+          <h3>Product Lens</h3>
+          <p>The best slice is a workflow that makes the right action easier than the wrong one, with evidence generated automatically as work happens.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Evidence: The Pain Is Specific</h2>
+      <div class="grid">
+        <div class="card span-6">
+          <blockquote class="quote">
+            "250+ different items" and "one single loaf of bread"
+            <cite>Small bakery member describing high-mix label verification risk. <a href="https://www.ifsqn.com/forum/index.php/topic/33444-verifying-label-changeover/#entry132652">Verifying Label Changeover</a></cite>
+          </blockquote>
+          <p>The problem is not only large production runs. Small, irregular runs create high cognitive load because a single product can become a missed label-verification event.</p>
+        </div>
+        <div class="card span-6">
+          <blockquote class="quote">
+            "right and compliant label" applied to the "right product"
+            <cite>Forum discussion of SQF 9 label reconciliation intent. <a href="https://www.ifsqn.com/forum/index.php/topic/42800-label-reconciliation-problem-sqf-edition-9/#entry182273">Label Reconciliation problem SQF edition 9</a></cite>
+          </blockquote>
+          <p>The operating job is simple to state but hard to prove: right label, right product, right moment, with a record that survives an audit.</p>
+        </div>
+        <div class="card span-6">
+          <blockquote class="quote">
+            "What records do you keep?"
+            <cite>Co-manufacturer asking about customer-provided labels. <a href="https://www.ifsqn.com/forum/index.php/topic/40795-sqf-requirement-for-labeling-of-foods-with-customer-provided-labels/#entry172479">SQF requirement for labeling of foods with customer provided labels</a></cite>
+          </blockquote>
+          <p>This is a product-design clue. Users are unsure where evidence starts and ends: receipt approval, production checks, reconciliation, obsolete label destruction, finished-product verification, or all of the above.</p>
+        </div>
+        <div class="card span-6">
+          <blockquote class="quote">
+            "label inventory is very difficult to reconcile"
+            <cite>Small company struggling with rolls, waste, machine issues, and hand labeling. <a href="https://www.ifsqn.com/forum/index.php/topic/42800-label-reconciliation-problem-sqf-edition-9/#entry203014">Label Reconciliation problem SQF edition 9</a></cite>
+          </blockquote>
+          <p>Counting every label is often unrealistic. The product should handle practical roll-level and event-level reconciliation, including waste, partial rolls, and manual labeling.</p>
+        </div>
+        <div class="card span-6">
+          <blockquote class="quote">
+            "first label of the day and each label changeover"
+            <cite>Member describing current paper-based checks. <a href="https://www.ifsqn.com/forum/index.php/topic/31912-labeling-and-packaging-checklist/#entry124164">Labeling and packaging checklist</a></cite>
+          </blockquote>
+          <p>The workflow already exists informally. A focused product can digitize the natural control points instead of forcing a broad system migration.</p>
+        </div>
+        <div class="card span-6">
+          <blockquote class="quote">
+            "How many labels did we use?"
+            <cite>Bakery-oriented SQF label reconciliation advice. <a href="https://www.ifsqn.com/forum/index.php/topic/41099-label-reconciliation-sqf-9-bakery/#entry173899">Label Reconciliation - SQF 9 - Bakery</a></cite>
+          </blockquote>
+          <p>The repetitive questions are product fields: issued, used, wasted, leftover, returned, destroyed, approved by, and verified at line.</p>
+        </div>
+        <div class="card span-6">
+          <blockquote class="quote">
+            "traceability and scanning information has to be very accurate"
+            <cite>Discussion of unlabeled or customer-labeled bakery items. <a href="https://www.ifsqn.com/forum/index.php/topic/36180-can-we-receive-unlabeled-bottled-liquid-marinades-for-co-manufacturing/#entry147665">Can we receive unlabeled bottled liquid marinades for Co-manufacturing</a></cite>
+          </blockquote>
+          <p>Label control is tied to traceability. The MVP does not need to become full traceability software, but it should store lot, work order, line, and carton identifiers cleanly.</p>
+        </div>
+        <div class="card span-6">
+          <blockquote class="quote">
+            "limited in space/small bakery"
+            <cite>Member describing allergen management compromise pressure. <a href="https://www.ifsqn.com/forum/index.php/topic/27084-allergen-dilemmaquestion/#entry99591">Allergen Dilemma/Question</a></cite>
+          </blockquote>
+          <p>Small facilities are where procedure burden collides with physical constraints. The product has to support practical controls, not idealized enterprise workflows.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Jobs To Be Done</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Job</th>
+            <th>Forum Signal</th>
+            <th>Product Implication</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td data-label="Job">Prevent wrong label or undeclared allergen release during changeover.</td>
+            <td data-label="Forum Signal">Members repeatedly frame changeover as the critical moment for label and allergen mistakes.</td>
+            <td data-label="Product Implication">Create event-triggered verification at startup, product change, label stock change, manual labeling, and rework/repack.</td>
+          </tr>
+          <tr>
+            <td data-label="Job">Prove compliance without hunting for paper.</td>
+            <td data-label="Forum Signal">Users ask what records to keep and describe attaching labels to paperwork.</td>
+            <td data-label="Product Implication">Generate a PDF and searchable audit packet with label image, lot code, timestamp, line, operator, verifier, and exception status.</td>
+          </tr>
+          <tr>
+            <td data-label="Job">Handle high-mix, small-batch production.</td>
+            <td data-label="Forum Signal">The strongest pain quote is a small bakery with 250+ products and risk of one loaf not being recorded.</td>
+            <td data-label="Product Implication">Make checks run-level and item-level, not only batch-level. Support one-off items without bloated setup.</td>
+          </tr>
+          <tr>
+            <td data-label="Job">Reconcile label rolls realistically.</td>
+            <td data-label="Forum Signal">Users struggle with 3,000-label rolls, waste, machine issues, and partial hand-labeling.</td>
+            <td data-label="Product Implication">Use roll IDs, starting/ending counts, estimated waste, partial-roll return, and variance thresholds instead of pretending every label can be perfectly counted.</td>
+          </tr>
+          <tr>
+            <td data-label="Job">Control customer-provided labels and claims.</td>
+            <td data-label="Forum Signal">Co-manufacturers ask what to inspect beyond allergens and what records to keep.</td>
+            <td data-label="Product Implication">Add a receipt check against an approved master label: allergens, SKU, ingredient list, claims, nutrition panel presence, legibility, and revision.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>Deeper Evidence Matrix</h2>
+      <p>The second evidence pass added more granular signals. These posts show that the product should not be a generic checklist builder. It needs a label-specific control model: approved master, goods-in verification, line event gates, roll reconciliation, obsolete label disposition, and exception handling.</p>
+      <table>
+        <thead>
+          <tr>
+            <th>Pain Signal</th>
+            <th>Short Forum Evidence</th>
+            <th>Design Requirement</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td data-label="Pain Signal">Approved-label source of truth is unclear.</td>
+            <td data-label="Short Forum Evidence">One member recommends that labels be "checked at the goods-in stage" and match an approved label. <a href="https://www.ifsqn.com/forum/index.php/topic/45551-labelling-verification-plan/#entry194335">Source</a></td>
+            <td data-label="Design Requirement">Create an approved label master with current revision, approval owner, product/SKU, allergen statement, claims, and obsolete status.</td>
+          </tr>
+          <tr>
+            <td data-label="Pain Signal">Workers need a simple way to prove they used the right current label.</td>
+            <td data-label="Short Forum Evidence">A label thread asks how workers verify "the correct label" during production. <a href="https://www.ifsqn.com/forum/index.php/topic/42194-if-we-add-a-serial-number-to-labels-do-we-have-to-resubmit-our-labels-for-approval-to-usda-and-fda/#entry179248">Source</a></td>
+            <td data-label="Design Requirement">Use scan/photo capture at line start and changeover, then compare the live label to the approved master before product can be released.</td>
+          </tr>
+          <tr>
+            <td data-label="Pain Signal">Label reconciliation has two distinct jobs that users conflate.</td>
+            <td data-label="Short Forum Evidence">A forum expert separates "changeover checks" from estimating expected label use and waste. <a href="https://www.ifsqn.com/forum/index.php/topic/40749-sqf-9-label-reconciliation/#entry190954">Source</a></td>
+            <td data-label="Design Requirement">Model verification and reconciliation separately: one proves right label/right product; the other explains label quantity variance.</td>
+          </tr>
+          <tr>
+            <td data-label="Pain Signal">Preprinted rolls and waste make exact counts unrealistic.</td>
+            <td data-label="Short Forum Evidence">A smaller company describes "2500 labels per roll" plus setup waste and labeler issues. <a href="https://www.ifsqn.com/forum/index.php/topic/42800-label-reconciliation-problem-sqf-edition-9/#entry182262">Source</a></td>
+            <td data-label="Design Requirement">Support practical roll-level reconciliation: start count, estimated use, finished units, expected waste, actual waste, variance reason, and partial-roll return.</td>
+          </tr>
+          <tr>
+            <td data-label="Pain Signal">Opened rolls move between storage, shipping, and production.</td>
+            <td data-label="Short Forum Evidence">Another post says once a roll is opened, "there's no way to tell" how many labels remain. <a href="https://www.ifsqn.com/forum/index.php/topic/42800-label-reconciliation-problem-sqf-edition-9/#entry203014">Source</a></td>
+            <td data-label="Design Requirement">Track roll custody events: issued to line, returned to storage, transferred to shipping, destroyed, or quarantined.</td>
+          </tr>
+          <tr>
+            <td data-label="Pain Signal">Periodic packaging checks already include multiple critical fields.</td>
+            <td data-label="Short Forum Evidence">Members describe checking "correct packaging, lot number, expiration date" during recurring checks. <a href="https://www.ifsqn.com/forum/index.php/topic/41530-how-to-carry-out-label-reconciliation/#entry175846">Source</a></td>
+            <td data-label="Design Requirement">Generate SKU-specific checks for product name, label version, lot/date code, case pack, weight, barcode, allergen statement, and claim flags.</td>
+          </tr>
+          <tr>
+            <td data-label="Pain Signal">Some cases need two-person verification.</td>
+            <td data-label="Short Forum Evidence">A SQF thread recommends "2 people cross-checking" the label. <a href="https://www.ifsqn.com/forum/index.php/topic/47096-sqf-2612-product-changeover-and-label-reconciliation-records/#entry202552">Source</a></td>
+            <td data-label="Design Requirement">Require second-person signoff for high-risk events: allergen change, new customer label, new revision, manual labeling, and variance over threshold.</td>
+          </tr>
+          <tr>
+            <td data-label="Pain Signal">Obsolete labels are a live risk, not just document-control housekeeping.</td>
+            <td data-label="Short Forum Evidence">A member says discarded old labels should be recorded to remove mistake potential. <a href="https://www.ifsqn.com/forum/index.php/topic/42194-if-we-add-a-serial-number-to-labels-do-we-have-to-resubmit-our-labels-for-approval-to-usda-and-fda/#entry179248">Source</a></td>
+            <td data-label="Design Requirement">Add label destruction and defacement records, with photo evidence and reason codes for obsolete or superseded labels.</td>
+          </tr>
+          <tr>
+            <td data-label="Pain Signal">Customer labels need countersignature and approval workflow.</td>
+            <td data-label="Short Forum Evidence">A BRC labeling post describes client countersignatures for label, specification, nutrition, and allergens. <a href="https://www.ifsqn.com/forum/index.php/topic/35972-brc-52-product-labeling-help/#entry146471">Source</a></td>
+            <td data-label="Design Requirement">For co-packers, create a customer-label approval record with customer signoff, label revision, claims, allergens, and product specification link.</td>
+          </tr>
+          <tr>
+            <td data-label="Pain Signal">Paper and spreadsheets create hidden error chains.</td>
+            <td data-label="Short Forum Evidence">One member says spreadsheets are "getting cumbersome" and create "duplication of data." <a href="https://www.ifsqn.com/forum/index.php/topic/22225-records-paper-or-electronic/page-2#entry93598">Source</a></td>
+            <td data-label="Design Requirement">Avoid a spreadsheet clone. Use structured records with reusable product, label, line, roll, and event entities.</td>
+          </tr>
+          <tr>
+            <td data-label="Pain Signal">Small plants need easy setup, not enterprise software.</td>
+            <td data-label="Short Forum Evidence">A small bakery asks for software because they have "no local IT" and paper feels stagnant. <a href="https://www.ifsqn.com/forum/index.php/topic/21588-quality-and-food-safety-softwarecloud-system/#entry75216">Source</a></td>
+            <td data-label="Design Requirement">Design for CSV import, tablet use, printable backup forms, and no mandatory ERP integration for a pilot.</td>
+          </tr>
+          <tr>
+            <td data-label="Pain Signal">QA is often one person with labels, specs, HACCP, audits, and complaints.</td>
+            <td data-label="Short Forum Evidence">A QA lead handling labels, specs, audits, and HACCP says, "I am really overwhelmed now." <a href="https://www.ifsqn.com/forum/index.php/topic/40172-how-many-qaqc-would-be-reasonable-for-our-company-size/#entry169259">Source</a></td>
+            <td data-label="Design Requirement">Move routine verification to operators and line leads while giving QA exception review, dashboards, and audit exports.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>Requirement Trace</h2>
+      <p>The product should be sold as "right label/right product evidence," but internally it needs a richer data model. The forum evidence points to these core objects and rules.</p>
+      <div class="grid">
+        <div class="card span-4">
+          <h3>Core Objects</h3>
+          <ul>
+            <li>Approved label master</li>
+            <li>Label roll or label batch</li>
+            <li>Production event</li>
+            <li>Product/SKU</li>
+            <li>Line or packing station</li>
+            <li>Customer approval record</li>
+            <li>Exception/CAPA link</li>
+          </ul>
+        </div>
+        <div class="card span-4">
+          <h3>Event Triggers</h3>
+          <ul>
+            <li>Goods-in receipt of labels</li>
+            <li>Startup</li>
+            <li>Product changeover</li>
+            <li>Packaging changeover</li>
+            <li>Label roll change</li>
+            <li>Manual hand-labeling</li>
+            <li>Partial roll return</li>
+            <li>Obsolete label destruction</li>
+          </ul>
+        </div>
+        <div class="card span-4">
+          <h3>Control Rules</h3>
+          <ul>
+            <li>Block obsolete label use</li>
+            <li>Require signoff by authorized role</li>
+            <li>Escalate allergen changes</li>
+            <li>Compare actual vs expected label use</li>
+            <li>Require reason for variance</li>
+            <li>Hold product on mismatch</li>
+            <li>Export evidence by lot or audit period</li>
+          </ul>
+        </div>
+      </div>
+      <div class="callout">
+        <strong>Product insight:</strong> the valuable abstraction is not a form. It is an event ledger for label-risk moments. Every label-risk event should either produce clean evidence or open an exception before product leaves the site.
+      </div>
+    </section>
+
+    <section>
+      <h2>Deepened Product Slice</h2>
+      <p>The first report framed LabelGate as a mobile changeover-verification tool. The deeper evidence suggests a more precise wedge:</p>
+      <div class="callout">
+        <strong>LabelGate is a label-risk event ledger for SQF and BRC food plants.</strong> It records every moment when labels can become wrong: receipt, approval, issue to line, startup, changeover, roll change, hand-labeling, return, destruction, and audit review.
+      </div>
+      <p>This wording matters. "Checklist app" sounds replaceable. "Label-risk event ledger" maps to the actual forum pain: users need defensible, connected evidence across the full label lifecycle without buying a full FSQMS.</p>
+    </section>
+
+    <section>
+      <h2>Product Slice: LabelGate</h2>
+      <p><strong>Positioning:</strong> "Audit-ready label and allergen changeover control for high-mix food plants."</p>
+      <p><strong>Not a full FSQMS.</strong> The wedge is deliberately small: approved label library plus event-based production verification plus reconciliation and evidence export.</p>
+      <div class="grid">
+        <div class="card span-4">
+          <h3>Buyer</h3>
+          <p>QA Manager, Food Safety Manager, SQF Practitioner, or Operations Manager in a small or mid-sized plant.</p>
+        </div>
+        <div class="card span-4">
+          <h3>Primary User</h3>
+          <p>Line lead, pack-out operator, QA tech, receiving clerk, and label/artwork owner.</p>
+        </div>
+        <div class="card span-4">
+          <h3>First Vertical</h3>
+          <p>Bakeries, snack plants, nut butter facilities, dietary supplement packers, and co-packers with many labels and allergens.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>MVP Workflow</h2>
+      <div class="workflow">
+        <div class="step"><strong>Approved label library.</strong> QA uploads approved label PDFs/images with SKU, product, allergen statement, claims, UPC, revision, approval date, and obsolete status.</div>
+        <div class="step"><strong>Production event trigger.</strong> A work order, startup, product changeover, label roll change, hand-labeling run, or repack creates a required verification event.</div>
+        <div class="step"><strong>Operator scan and photo capture.</strong> The operator scans product, label roll, lot code, and line. The app captures a photo of the live label and compares it to the approved master.</div>
+        <div class="step"><strong>Guided allergen/claim check.</strong> The app presents only the critical fields for that SKU: contains statement, may contain statement, claim flags, lot code format, expiration date, and customer label version.</div>
+        <div class="step"><strong>Second-person signoff.</strong> High-risk events require QA or authorized verifier signoff. Examples: new allergen introduced on line, customer label, obsolete label risk, or manual hand-labeling.</div>
+        <div class="step"><strong>Reconciliation.</strong> The run records labels issued, used, wasted, returned, destroyed, partial roll retained, and variance reason. Threshold failures create an exception.</div>
+        <div class="step"><strong>Evidence packet.</strong> The product stores timestamped checks, label photos, retained-sample reference, operator/verifier identity, roll ID, lot code, product count, and exception closeout.</div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Feature Boundaries</h2>
+      <div class="grid">
+        <div class="card span-6">
+          <h3>Include In V1</h3>
+          <ul>
+            <li>Label master library with revision and obsolete status.</li>
+            <li>Event-based mobile checks for startup, changeover, roll change, and hand-labeling.</li>
+            <li>Barcode/QR scan for product, label roll, work order, and lot code.</li>
+            <li>Photo capture and side-by-side comparison to approved master.</li>
+            <li>Allergen and claim checklist generated from the approved label record.</li>
+            <li>Authorized verifier signoff and exception workflow.</li>
+            <li>Audit-ready export by date, line, SKU, lot, customer, or label revision.</li>
+          </ul>
+        </div>
+        <div class="card span-6">
+          <h3>Exclude From V1</h3>
+          <ul>
+            <li>Full HACCP plan builder.</li>
+            <li>Full ERP or MES replacement.</li>
+            <li>Regulatory label authoring or automatic legal approval.</li>
+            <li>Complete traceability and mass-balance platform.</li>
+            <li>Full CAPA suite beyond exceptions tied to label events.</li>
+            <li>Complex supplier management beyond customer-provided label receipt checks.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="callout warning">
+        <strong>Important product constraint:</strong> AI can assist visual comparison and field extraction, but the product should preserve human verification. The forum pain is about defensible evidence and auditor trust, not replacing QA judgment.
+      </div>
+    </section>
+
+    <section>
+      <h2>Why This Is A Strong Wedge</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Criterion</th>
+            <th>Assessment</th>
+            <th>Reason</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td data-label="Criterion">Urgency</td>
+            <td data-label="Assessment"><span class="score high">High</span></td>
+            <td data-label="Reason">Wrong-label and allergen mistakes can trigger recalls, customer complaints, audit findings, and product holds.</td>
+          </tr>
+          <tr>
+            <td data-label="Criterion">Pain Specificity</td>
+            <td data-label="Assessment"><span class="score high">High</span></td>
+            <td data-label="Reason">Forum members describe exact events: changeover, first label of day, roll changes, customer labels, and one-off bakery items.</td>
+          </tr>
+          <tr>
+            <td data-label="Criterion">Buyer Clarity</td>
+            <td data-label="Assessment"><span class="score high">High</span></td>
+            <td data-label="Reason">QA and SQF practitioners own the audit risk, while operations feels the daily burden.</td>
+          </tr>
+          <tr>
+            <td data-label="Criterion">Implementation Scope</td>
+            <td data-label="Assessment"><span class="score med">Medium</span></td>
+            <td data-label="Reason">The product can start standalone, but value improves with product, label, and work-order data imports.</td>
+          </tr>
+          <tr>
+            <td data-label="Criterion">Competitive Surface</td>
+            <td data-label="Assessment"><span class="score med">Medium</span></td>
+            <td data-label="Reason">Generic FSQMS and form tools exist, but the narrow workflow can win by being faster to deploy and more line-friendly.</td>
+          </tr>
+          <tr>
+            <td data-label="Criterion">Expansion Potential</td>
+            <td data-label="Assessment"><span class="score high">High</span></td>
+            <td data-label="Reason">The same data spine extends naturally into complaints, CAPA, traceability, supplier specs, and NPD gates.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>Go-To-Market Slice</h2>
+      <div class="grid">
+        <div class="card span-6">
+          <h3>Beachhead Segment</h3>
+          <p>High-mix SQF bakeries and snack/co-pack operations with multiple allergens and frequent label changes. They are large enough to feel audit pressure but small enough that enterprise QMS/MES implementation is too heavy.</p>
+        </div>
+        <div class="card span-6">
+          <h3>Message</h3>
+          <p>"Prove the right label was applied to the right product at every changeover, roll change, and hand-labeling run. No binder chase. No spreadsheet reconstruction."</p>
+        </div>
+        <div class="card span-6">
+          <h3>Demo Moment</h3>
+          <p>Show an operator scanning a work order and label roll, taking a label photo, getting a mismatch warning, resolving it, and exporting an SQF-ready evidence packet in under two minutes.</p>
+        </div>
+        <div class="card span-6">
+          <h3>Initial Pricing Hypothesis</h3>
+          <p>Per site plus production-line seats, with a low-friction pilot for one line or one product family. The buyer needs to see audit evidence quickly, not endure a six-month implementation.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Risks And Design Responses</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Risk</th>
+            <th>Response</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td data-label="Risk">Operators skip checks when production is rushed.</td>
+            <td data-label="Response">Make checks event-gated and fast. Use scan defaults, big touch targets, offline mode, and exception-only typing.</td>
+          </tr>
+          <tr>
+            <td data-label="Risk">Label inventory cannot be reconciled perfectly.</td>
+            <td data-label="Response">Support practical roll-level reconciliation with variance thresholds and reason codes instead of impossible per-label precision.</td>
+          </tr>
+          <tr>
+            <td data-label="Risk">Auditors distrust AI-only verification.</td>
+            <td data-label="Response">Keep AI as assistive comparison. Human signoff, timestamps, source master label, and immutable evidence remain the control.</td>
+          </tr>
+          <tr>
+            <td data-label="Risk">Plants lack clean master data.</td>
+            <td data-label="Response">Start with CSV import and a simple label library. Do not require ERP integration for the first pilot.</td>
+          </tr>
+          <tr>
+            <td data-label="Risk">Customer-provided labels change without notice.</td>
+            <td data-label="Response">Add receipt sampling against approved master and block release to production if revision, allergen, claim, or legibility checks fail.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>Product Roadmap</h2>
+      <div class="grid">
+        <div class="card span-4">
+          <h3>Phase 1: Prove The Gate</h3>
+          <p>Approved label library, mobile event checks, basic reconciliation, signatures, evidence export, and exception log.</p>
+        </div>
+        <div class="card span-4">
+          <h3>Phase 2: Reduce QA Review</h3>
+          <p>OCR-assisted comparison, allergen/claim extraction, variance analytics, recurring run templates, and scheduled audit reports.</p>
+        </div>
+        <div class="card span-4">
+          <h3>Phase 3: Expand The Spine</h3>
+          <p>Connect label exceptions to CAPA, link label revision to NPD/spec changes, and feed traceability or mock recall evidence.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>References</h2>
+      <ol class="refs">
+        <li><a href="https://www.ifsqn.com/forum/index.php/topic/33444-verifying-label-changeover/#entry132652">Verifying Label Changeover</a> - small bakery, 250+ items, single-loaf recording risk.</li>
+        <li><a href="https://www.ifsqn.com/forum/index.php/topic/42800-label-reconciliation-problem-sqf-edition-9/#entry182273">Label Reconciliation problem SQF edition 9</a> - SQF 9 label reconciliation, changeover, allergen risk.</li>
+        <li><a href="https://www.ifsqn.com/forum/index.php/topic/42800-label-reconciliation-problem-sqf-edition-9/#entry203014">Label Reconciliation problem SQF edition 9</a> - practical difficulty reconciling label inventory and rolls.</li>
+        <li><a href="https://www.ifsqn.com/forum/index.php/topic/40795-sqf-requirement-for-labeling-of-foods-with-customer-provided-labels/#entry172479">SQF requirement for labeling of foods with customer provided labels</a> - co-manufacturing and customer-label records.</li>
+        <li><a href="https://www.ifsqn.com/forum/index.php/topic/40795-sqf-requirement-for-labeling-of-foods-with-customer-provided-labels/#entry172501">SQF requirement for labeling of foods with customer provided labels</a> - comparing provided labels against approved originals.</li>
+        <li><a href="https://www.ifsqn.com/forum/index.php/topic/31912-labeling-and-packaging-checklist/#entry124164">Labeling and packaging checklist</a> - first-label and changeover checks, label retention on paperwork.</li>
+        <li><a href="https://www.ifsqn.com/forum/index.php/topic/41099-label-reconciliation-sqf-9-bakery/#entry173899">Label Reconciliation - SQF 9 - Bakery</a> - label counts, leftover labels, and changeover approval.</li>
+        <li><a href="https://www.ifsqn.com/forum/index.php/topic/36180-can-we-receive-unlabeled-bottled-liquid-marinades-for-co-manufacturing/#entry147665">Can we receive unlabeled bottled liquid marinades for Co-manufacturing</a> - traceability and scanning accuracy for customer labeling.</li>
+        <li><a href="https://www.ifsqn.com/forum/index.php/topic/27084-allergen-dilemmaquestion/#entry99591">Allergen Dilemma/Question</a> - small bakery space constraints and allergen labeling pressure.</li>
+        <li><a href="https://www.ifsqn.com/forum/index.php/topic/43587-allergen-management-in-sqf-code-9/#entry186485">Allergen Management in SQF Code 9</a> - methods to control label accuracy and true-to-label allergens.</li>
+        <li><a href="https://www.ifsqn.com/forum/index.php/topic/45551-labelling-verification-plan/#entry194335">Labelling Verification Plan</a> - goods-in label checks, approved-label comparison, production checks, and printed-field verification.</li>
+        <li><a href="https://www.ifsqn.com/forum/index.php/topic/42194-if-we-add-a-serial-number-to-labels-do-we-have-to-resubmit-our-labels-for-approval-to-usda-and-fda/#entry179248">If we add a serial number to labels do we have to resubmit our labels for approval?</a> - current-label checks, worker verification, and outdated-label removal.</li>
+        <li><a href="https://www.ifsqn.com/forum/index.php/topic/40749-sqf-9-label-reconciliation/#entry190954">SQF 9 - Label Reconciliation</a> - distinction between startup/changeover checks and expected-use reconciliation.</li>
+        <li><a href="https://www.ifsqn.com/forum/index.php/topic/42800-label-reconciliation-problem-sqf-edition-9/#entry182262">Label Reconciliation problem SQF edition 9</a> - preprinted rolls, setup waste, labeler issues, and impractical exact waste counts.</li>
+        <li><a href="https://www.ifsqn.com/forum/index.php/topic/41530-how-to-carry-out-label-reconciliation/#entry175846">How to carry out Label Reconciliation?</a> - packaging issuance, 30-minute checks, lot number, expiration date, and fill-weight records.</li>
+        <li><a href="https://www.ifsqn.com/forum/index.php/topic/47096-sqf-2612-product-changeover-and-label-reconciliation-records/#entry202552">SQF 2.6.1.2 Product changeover and label reconciliation records</a> - two-person cross-checks and start/end verification points.</li>
+        <li><a href="https://www.ifsqn.com/forum/index.php/topic/35972-brc-52-product-labeling-help/#entry146471">BRC 5.2 Product Labeling - HELP!</a> - customer countersignatures and label/specification approval before production.</li>
+        <li><a href="https://www.ifsqn.com/forum/index.php/topic/22225-records-paper-or-electronic/page-2#entry93598">Records: Paper or Electronic</a> - spreadsheet duplication, version drift, and pressure to move toward connected records.</li>
+        <li><a href="https://www.ifsqn.com/forum/index.php/topic/21588-quality-and-food-safety-softwarecloud-system/#entry75216">Quality and Food Safety Software/Cloud System</a> - small bakery, no local IT, paper-and-Excel quality testing friction.</li>
+        <li><a href="https://www.ifsqn.com/forum/index.php/topic/40172-how-many-qaqc-would-be-reasonable-for-our-company-size/#entry169259">How many QA/QC would be reasonable for our company size?</a> - overloaded QA owner handling labels, specs, HACCP, audits, and complaints.</li>
+      </ol>
+      <p class="small">Note: quoted excerpts are intentionally short. Most interpretation is synthesized from the forum posts and surrounding discussion rather than copied verbatim.</p>
+    </section>
+  </main>
+</body>
+</html>
