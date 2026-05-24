@@ -1,0 +1,411 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>IFSQN Deep Dive: How Sites Currently Solve Traceability, Mass Balance and Mock Recall</title>
+  <style>
+    :root {
+      --ink: #17202a;
+      --muted: #5f6b7a;
+      --line: #d8dee8;
+      --panel: #f7f9fc;
+      --head: #eaf1f7;
+      --link: #155e75;
+      --green: #0f766e;
+      --blue: #075985;
+      --amber: #92400e;
+      --red: #991b1b;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--ink);
+      background: #fff;
+      line-height: 1.48;
+    }
+    header {
+      padding: 34px 42px 26px;
+      background: #f3f7fb;
+      border-bottom: 1px solid var(--line);
+    }
+    main { padding: 28px 42px 54px; }
+    h1 {
+      margin: 0 0 10px;
+      font-size: 30px;
+      letter-spacing: 0;
+      max-width: 1180px;
+    }
+    h2 { margin: 34px 0 12px; font-size: 21px; letter-spacing: 0; }
+    h3 { margin: 0 0 8px; font-size: 16px; letter-spacing: 0; }
+    p { max-width: 1180px; }
+    a { color: var(--link); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .meta { margin: 0; color: var(--muted); max-width: 1180px; }
+    .summary {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(170px, 1fr));
+      gap: 12px;
+      max-width: 1180px;
+      margin: 22px 0;
+    }
+    .metric {
+      border: 1px solid var(--line);
+      background: #fff;
+      border-radius: 8px;
+      padding: 14px 16px;
+    }
+    .metric b { display: block; font-size: 22px; margin-bottom: 3px; }
+    .metric span { color: var(--muted); font-size: 13px; }
+    .note {
+      max-width: 1180px;
+      padding: 15px 17px;
+      border: 1px solid var(--line);
+      background: var(--panel);
+      border-radius: 8px;
+      margin-bottom: 16px;
+    }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      max-width: 1180px;
+    }
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      max-width: 1180px;
+    }
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      padding: 15px 16px;
+    }
+    .card p { margin: 0; }
+    .card ul { margin-bottom: 0; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      table-layout: fixed;
+      font-size: 14px;
+      margin-top: 14px;
+    }
+    th, td {
+      border: 1px solid var(--line);
+      padding: 10px 12px;
+      vertical-align: top;
+    }
+    th {
+      text-align: left;
+      background: var(--head);
+      color: #263445;
+      font-size: 13px;
+    }
+    td.pattern { width: 220px; font-weight: 700; }
+    td.current { width: 330px; }
+    td.evidence { width: 390px; }
+    blockquote {
+      margin: 6px 0 0;
+      padding-left: 10px;
+      border-left: 3px solid #9bb6c6;
+      color: #243241;
+    }
+    .tag {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      margin-top: 4px;
+    }
+    .green { background: #d1fae5; color: var(--green); }
+    .blue { background: #e0f2fe; color: var(--blue); }
+    .amber { background: #fef3c7; color: var(--amber); }
+    .red { background: #fee2e2; color: var(--red); }
+    .flow {
+      max-width: 1180px;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 10px;
+      margin-top: 14px;
+    }
+    .step {
+      min-height: 112px;
+      border: 1px solid var(--line);
+      background: var(--panel);
+      border-radius: 8px;
+      padding: 12px;
+    }
+    .step b { display: block; margin-bottom: 6px; }
+    .step span { color: var(--muted); font-size: 13px; }
+    .small { color: var(--muted); font-size: 12px; }
+    @media (max-width: 980px) {
+      header, main { padding-left: 18px; padding-right: 18px; }
+      .summary, .grid-2, .grid-3, .flow { grid-template-columns: 1fr; }
+      table { display: block; overflow-x: auto; white-space: normal; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>IFSQN Deep Dive: How Sites Currently Solve Traceability, Mass Balance and Mock Recall</h1>
+    <p class="meta">Generated 2026-05-24. Source scope: IFSQN MCP forum searches only. Purpose: map current operating practice and workaround patterns for a traceability/mass-balance/mock-recall product.</p>
+  </header>
+
+  <main>
+    <section class="summary" aria-label="Evidence metrics">
+      <div class="metric"><b>12+</b><span>targeted forum searches</span></div>
+      <div class="metric"><b>55</b><span>evidence citations in report</span></div>
+      <div class="metric"><b>10</b><span>current-solution patterns mapped</span></div>
+      <div class="metric"><b>Core finding</b><span>paper/ERP hybrid evidence packs</span></div>
+    </section>
+
+    <section class="note">
+      <p><strong>Executive finding.</strong> Sites generally solve this problem with a hybrid of procedure, spreadsheet/template, ERP/WMS/accounting exports, paper batch records, copied dispatch evidence, and a timed front-sheet report. Better-equipped sites rely on ERP/SAP/SAGE/WMS and job cards, but even then they still need to assemble source documents, explain variances, verify contacts, and retain an audit pack.</p>
+      <p><strong>Important nuance.</strong> Forum users often blur "traceability exercise", "mass balance", "mock recall", and "recall procedure test". In practice, many sites combine them into one exercise, but the evidence shows they are not the same thing: traceability proves lots and quantities, mass balance proves reconciliation, and mock recall tests people, contacts, decision-making and timing.</p>
+    </section>
+
+    <h2>Current-State Process Map</h2>
+    <div class="flow" aria-label="Current-state process map">
+      <div class="step"><b>1. Pick scenario</b><span>Finished lot, raw material lot, packaging lot, supplier alert, customer complaint, random invoice or job.</span></div>
+      <div class="step"><b>2. Start timer</b><span>Record date, start time, participants, role assignments, and sometimes total completion time.</span></div>
+      <div class="step"><b>3. Gather records</b><span>Pull batch records, goods-in, COAs, specs, production records, dispatch records, invoices, BOLs and inventory.</span></div>
+      <div class="step"><b>4. Trace lots</b><span>Run forward and backward tracing across raw materials, packaging, WIP, finished goods, warehouses and customers.</span></div>
+      <div class="step"><b>5. Reconcile quantities</b><span>Compare received/issued/used/produced/shipped/stock/waste/rework/sample quantities and explain variance.</span></div>
+      <div class="step"><b>6. Check contacts</b><span>Verify recall team, supplier, customer, regulator or certification-body contact routes, often without alarming customers.</span></div>
+      <div class="step"><b>7. Record timeline</b><span>Capture when complaint/alert was received, team convened, trace completed, contacts checked and decisions made.</span></div>
+      <div class="step"><b>8. Build report</b><span>Create a front sheet plus attachments so auditors can review the outcome without digging through raw files.</span></div>
+      <div class="step"><b>9. Raise actions</b><span>Document gaps, bottlenecks, missing evidence, contact failures and corrective actions.</span></div>
+      <div class="step"><b>10. Retain pack</b><span>File the exercise as controlled evidence for audit and use the results to improve the procedure.</span></div>
+    </div>
+
+    <h2>How People Currently Solve It</h2>
+    <table>
+      <thead>
+        <tr>
+          <th style="width:220px;">Pattern</th>
+          <th style="width:330px;">Current workaround / practice</th>
+          <th style="width:390px;">Forum evidence</th>
+          <th>Product implication</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="pattern">They combine traceability and mock recall</td>
+          <td class="current">Many sites treat mock recall as a traceability exercise with mass balance, then add contact checks, recall-team activation and timing evidence.</td>
+          <td class="evidence">
+            <a href="https://www.ifsqn.com/forum/index.php/topic/20502-recall-documentation/#entry61417">Recall Documentation</a><blockquote>"traceability exercise, with mass balance"</blockquote>
+            <a href="https://www.ifsqn.com/forum/index.php/topic/17056-product-recall-and-traceability/#entry48271">Product Recall and Traceability</a><blockquote>"test of your entire recall program"</blockquote>
+            <a href="https://www.ifsqn.com/forum/index.php/topic/21866-auditor-wants-a-mock-recall-performed-forwards-and-backwards/#entry69910">Auditor wants forwards/backwards</a><blockquote>"includes mass balance also"</blockquote>
+          </td>
+          <td>The product should explicitly separate modules for traceability, mass balance and recall-procedure test, while allowing one combined exercise.</td>
+        </tr>
+        <tr>
+          <td class="pattern">They rely on templates and front sheets</td>
+          <td class="current">Sites use mock-recall forms, one-page summaries, front sheets and report templates to make evidence digestible for auditors.</td>
+          <td class="evidence">
+            <a href="https://www.ifsqn.com/forum/index.php/topic/37973-does-anyone-have-any-sample-forms-for-conducting-a-mock-recall/#entry157421">Sample forms for mock recall</a><blockquote>"hunt for a better template"</blockquote>
+            <a href="https://www.ifsqn.com/forum/index.php/topic/17056-product-recall-and-traceability/#entry48271">Product Recall and Traceability</a><blockquote>"auditors like to have a front page"</blockquote>
+            <a href="https://www.ifsqn.com/forum/index.php/topic/37284-sample-manual-for-traceability-program-and-mock-traceability/#entry153886">Sample Manual for Traceability Program</a><blockquote>"Starting time : Completion time"</blockquote>
+          </td>
+          <td>A report builder is core, not an add-on. It should create a concise front page, then attach trace maps, calculations and source evidence.</td>
+        </tr>
+        <tr>
+          <td class="pattern">They time the exercise</td>
+          <td class="current">Four hours is repeatedly discussed for BRC-style traceability, while some customer or scheme requirements use other limits. Sites record total time and step-by-step timing.</td>
+          <td class="evidence">
+            <a href="https://www.ifsqn.com/forum/index.php/topic/19871-length-of-mock-recall-with-traceability/#entry58725">Length of mock recall</a><blockquote>"achievable within four hours"</blockquote>
+            <a href="https://www.ifsqn.com/forum/index.php/topic/25636-extent-of-product-traceability-to-satisfy-brc/#entry91459">Extent of Product Traceability</a><blockquote>"takes longer than 4 hours"</blockquote>
+            <a href="https://www.ifsqn.com/forum/index.php/topic/50120-costco-traceability-exercises/#entry220284">Costco Traceability exercises</a><blockquote>"2-hour timeframe"</blockquote>
+          </td>
+          <td>The system should have configurable timing targets by standard/customer, with both total elapsed time and milestone timestamps.</td>
+        </tr>
+        <tr>
+          <td class="pattern">They use ERP, SAP, SAGE, WMS or accounting tools where available</td>
+          <td class="current">More mature sites use enterprise or warehouse/accounting systems to query lots quickly, then still gather documents and export supporting evidence.</td>
+          <td class="evidence">
+            <a href="https://www.ifsqn.com/forum/index.php/topic/22859-mock-recall-inout-reporting/#entry73977">Mock Recall - In/Out Reporting</a><blockquote>"ERP system in place"</blockquote>
+            <a href="https://www.ifsqn.com/forum/index.php/topic/20753-question-on-brc-clause-532/#entry62658">Question on BRC Clause 5.3.2</a><blockquote>"records are located in our SAP system"</blockquote>
+            <a href="https://www.ifsqn.com/forum/index.php/topic/22313-food-safety-traceability-program/#entry70562">Food Safety Traceability Program</a><blockquote>"manually using our SAGE accounting tool"</blockquote>
+            <a href="https://www.ifsqn.com/forum/index.php/topic/39018-recording-products-shipped-out-of-the-production-line/#entry163610">Recording products shipped</a><blockquote>"Warehouse Management System"</blockquote>
+          </td>
+          <td>Integration with ERP/WMS is valuable, but the product must still support uploads and manual evidence because many sites are hybrid or paper-heavy.</td>
+        </tr>
+        <tr>
+          <td class="pattern">They still depend on paper batch records</td>
+          <td class="current">Even where a WMS or accounting system exists, production traceability often comes from receiving forms, paper batch sheets, production records and dispatch documents.</td>
+          <td class="evidence">
+            <a href="https://www.ifsqn.com/forum/index.php/topic/19995-mock-recall-forward-and-backward-traceability-requirements/#entry207844">Forward/backward traceability requirements</a><blockquote>"kept everything manually"</blockquote>
+            <a href="https://www.ifsqn.com/forum/index.php/topic/14411-recall-simulation/#entry36029">Recall Simulation</a><blockquote>"copy the production records"</blockquote>
+            <a href="https://www.ifsqn.com/forum/index.php/topic/31632-recall-mock-recall-time-frame/#entry122634">Recall / Mock Recall Time Frame</a><blockquote>"job cards have all raw materials"</blockquote>
+          </td>
+          <td>Document capture, OCR/extraction and evidence indexing are high-value. The product cannot assume all trace data is already structured.</td>
+        </tr>
+        <tr>
+          <td class="pattern">They pull a broad evidence bundle</td>
+          <td class="current">Typical packs include pick lists, BOLs, invoices, product specs, ingredient specs, packaging specs, COAs, production records, maintenance records, CCP checks and dispatch records.</td>
+          <td class="evidence">
+            <a href="https://www.ifsqn.com/forum/index.php/topic/22676-fssc-mock-recall-traceability-exercise/#entry72494">FSSC Mock Recall / Traceability Exercise</a><blockquote>"pick lists, BOLs, & invoices"</blockquote>
+            <a href="https://www.ifsqn.com/forum/index.php/topic/22411-how-to-conduct-a-mock-recall/#entry71226">How to conduct a mock recall?</a><blockquote>"production and maintenance records"</blockquote>
+            <a href="https://www.ifsqn.com/forum/index.php/topic/29072-how-to-conduct-a-traceability-exercise-both-backwards-and-forwards/#entry110079">Traceability exercise backwards and forwards</a><blockquote>"quantities should be recorded"</blockquote>
+            <a href="https://www.ifsqn.com/forum/index.php/topic/46130-customer-requesting-information-for-mock-recall/#entry197529">Customer requesting information</a><blockquote>"COAs...supplier information"</blockquote>
+          </td>
+          <td>The product should provide a standard evidence checklist by scenario and show missing evidence before the audit or mock recall closes.</td>
+        </tr>
+        <tr>
+          <td class="pattern">They run forward and backward traces separately or together</td>
+          <td class="current">Sites may start from a raw material and trace forward to finished goods/customers, or start from a finished product/customer invoice and trace back to materials and suppliers.</td>
+          <td class="evidence">
+            <a href="https://www.ifsqn.com/forum/index.php/topic/20202-what-is-forward-backward-traceability/#entry87767">What is Forward & Backward Traceability?</a><blockquote>"choose a raw material"</blockquote>
+            <a href="https://www.ifsqn.com/forum/index.php/topic/21866-auditor-wants-a-mock-recall-performed-forwards-and-backwards/#entry68062">Auditor wants forwards and backwards</a><blockquote>"finished goods to warehouse and customers"</blockquote>
+            <a href="https://www.ifsqn.com/forum/index.php/topic/19206-traceability-challenge-testing-during-brc-audit/#entry56379">Traceability Challenge Testing</a><blockquote>"random outgoing invoice"</blockquote>
+            <a href="https://www.ifsqn.com/forum/index.php/topic/19995-mock-recall-forward-and-backward-traceability-requirements/#entry59098">Forward/backward requirements</a><blockquote>"start with a finished product or a raw material?"</blockquote>
+          </td>
+          <td>The product should let users choose starting point and direction, then require the missing direction before final sign-off if the standard/customer requires both.</td>
+        </tr>
+        <tr>
+          <td class="pattern">Mass balance is treated as an accounting exercise</td>
+          <td class="current">Sites compare incoming material quantities to production use, finished goods, dispatched product, stock, waste, overfill, samples, shrinkage and rework.</td>
+          <td class="evidence">
+            <a href="https://www.ifsqn.com/forum/index.php/topic/22859-mock-recall-inout-reporting/#entry74011">Mock Recall - In/Out Reporting</a><blockquote>"account for discrepancies"</blockquote>
+            <a href="https://www.ifsqn.com/forum/index.php/topic/22676-fssc-mock-recall-traceability-exercise/#entry73005">FSSC Mock Recall page 2</a><blockquote>"overfill & fixed waste"</blockquote>
+            <a href="https://www.ifsqn.com/forum/index.php/topic/39810-product-traceability-issue/#entry167540">Product traceability issue</a><blockquote>"waste product / hold product"</blockquote>
+            <a href="https://www.ifsqn.com/forum/index.php/topic/21501-difference-between-test-of-recall-program-vs-a-traceability-exercise/#entry66066">Recall vs traceability exercise</a><blockquote>"calculate yield/recovery"</blockquote>
+          </td>
+          <td>Mass balance should be a structured worksheet with variance drivers, not a free-text note. Rework, QA samples and waste need first-class fields.</td>
+        </tr>
+        <tr>
+          <td class="pattern">Tolerance is inconsistent and often debated</td>
+          <td class="current">Some users cite 99.5-105% ranges, while others emphasise that packed finished product should not exceed raw material quantities and discrepancies must be justified.</td>
+          <td class="evidence">
+            <a href="https://www.ifsqn.com/forum/index.php/topic/27554-share-your-experience-on-conducting-a-product-recallmock-recall/#entry102299">Share your experience</a><blockquote>"99.5 to 105% accounting"</blockquote>
+            <a href="https://www.ifsqn.com/forum/index.php/topic/27992-tolerance-on-mass-balance-for-recallwithdrawal-for-brc/#entry120748">Tolerance on Mass Balance</a><blockquote>"justify any discrepancies"</blockquote>
+            <a href="https://www.ifsqn.com/forum/index.php/topic/39845-how-do-you-determine-the-tolerance-allowed-in-the-mass-balance-of-your-traceability-of-packaging-materials/#entry167726">Packaging mass balance tolerance</a><blockquote>"no specific"</blockquote>
+            <a href="https://www.ifsqn.com/forum/index.php/topic/19206-traceability-challenge-testing-during-brc-audit/#entry95151">Traceability Challenge Testing</a><blockquote>"percent recovery"</blockquote>
+          </td>
+          <td>The product should allow site/customer/scheme tolerances and force a written rationale when variance exceeds target or has unusual direction.</td>
+        </tr>
+        <tr>
+          <td class="pattern">Packaging and labels are a separate trace problem</td>
+          <td class="current">Sites must account for printed packaging and labels, including issued, used, wasted, disposed and returned quantities. This is often handled through packaging reconciliation forms.</td>
+          <td class="evidence">
+            <a href="https://www.ifsqn.com/forum/index.php/topic/45195-brcgs-v9-point-393/#entry192608">BRCGS V9 point 3.9.3</a><blockquote>"Issued to the production line"</blockquote>
+            <a href="https://www.ifsqn.com/forum/index.php/topic/49299-what-to-include-in-a-master-label-control-log/#entry214375">Master Label Control Log</a><blockquote>"labels reconciled"</blockquote>
+            <a href="https://www.ifsqn.com/forum/index.php/topic/41099-label-reconciliation-sqf-9-bakery/#entry174491">Label Reconciliation - Bakery</a><blockquote>"Quantity Produced + Quantity Wasted"</blockquote>
+            <a href="https://www.ifsqn.com/forum/index.php/topic/33895-packaging-traceability-brc-questions/#entry135037">Packaging traceability questions</a><blockquote>"not unique enough to trace"</blockquote>
+          </td>
+          <td>Packaging traceability should not be bolted on. It needs its own lot fields, reconciliation logic and supplier/shipment identifiers.</td>
+        </tr>
+        <tr>
+          <td class="pattern">Supplier traceability is handled by requests and challenges</td>
+          <td class="current">Sites send traceability exercises to suppliers, request current trace exercises, or ask suppliers to trace a specific batch. Confidentiality and repackers create friction.</td>
+          <td class="evidence">
+            <a href="https://www.ifsqn.com/forum/index.php/topic/31093-how-to-challenge-a-suppliers-traceability/#entry119880">How to challenge a supplier's traceability?</a><blockquote>"How does one challenge"</blockquote>
+            <a href="https://www.ifsqn.com/forum/index.php/topic/31188-brc-nc-supplier-traceability/#entry120441">BRC NC supplier traceability</a><blockquote>"non-conformance was raised"</blockquote>
+            <a href="https://www.ifsqn.com/forum/index.php/topic/29082-approval-acceptance-procedure-for-sourcing-packaging/#entry110370">Sourcing packaging approval</a><blockquote>"request the current trace exercise"</blockquote>
+            <a href="https://www.ifsqn.com/forum/index.php/topic/31929-is-salsa-a-gfsi-recognised-standard/#entry124235">SALSA and supplier approval</a><blockquote>"trace a specific batch"</blockquote>
+          </td>
+          <td>The product should include supplier trace-challenge templates, response tracking, supplier evidence review and escalation into supplier approval monitoring.</td>
+        </tr>
+        <tr>
+          <td class="pattern">Customer contact is tested cautiously</td>
+          <td class="current">Some sites contact customers as part of the mock recall; others avoid saying "recall" and instead verify contact details to prevent confusion or commercial disruption.</td>
+          <td class="evidence">
+            <a href="https://www.ifsqn.com/forum/index.php/topic/34536-do-we-need-to-contact-customers-when-performing-a-mock-recall/#entry138961">Contacting customers in mock recall</a><blockquote>"updating your records"</blockquote>
+            <a href="https://www.ifsqn.com/forum/index.php/topic/35372-should-a-mock-recall-include-contacting-the-customer/#entry143112">Should mock recall include customer?</a><blockquote>"potential for confusion and panic"</blockquote>
+            <a href="https://www.ifsqn.com/forum/index.php/topic/30070-sqf-recalltraceability-time-of-completion/#entry115133">SQF time of completion</a><blockquote>"proof of acknowledgement"</blockquote>
+            <a href="https://www.ifsqn.com/forum/index.php/topic/42829-traceability-test-and-inability-to-contact-the-customer/#entry182457">Inability to contact customer</a><blockquote>"record it on your timeline"</blockquote>
+          </td>
+          <td>Customer-contact testing needs configurable scripts, contact verification workflows, evidence capture and "do not trigger false recall" safeguards.</td>
+        </tr>
+        <tr>
+          <td class="pattern">They test the recall team and decision process</td>
+          <td class="current">A recall-procedure test records the team, roles, decision tree, decision authority, communication assignments, and whether people know who contacts whom.</td>
+          <td class="evidence">
+            <a href="https://www.ifsqn.com/forum/index.php/topic/25671-mock-recall-exercise-for-fresh-produce-plant/#entry91617">Fresh produce mock recall</a><blockquote>"Decision tree used"</blockquote>
+            <a href="https://www.ifsqn.com/forum/index.php/topic/16923-please-share-an-example-of-a-mock-recall-report/#entry47736">Mock recall report example</a><blockquote>"who will sent which information"</blockquote>
+            <a href="https://www.ifsqn.com/forum/index.php/topic/15939-how-the-product-recall-and-withdrawal-procedure-should-be-tested/#entry43400">Recall and withdrawal procedure test</a><blockquote>"everybody knows what to do"</blockquote>
+            <a href="https://www.ifsqn.com/forum/index.php/topic/22411-how-to-conduct-a-mock-recall/#entry71226">How to conduct mock recall</a><blockquote>"formal Recall Team"</blockquote>
+          </td>
+          <td>The product should support a recall-team simulation mode with role prompts, decision log, assignment log and communication-control checks.</td>
+        </tr>
+        <tr>
+          <td class="pattern">They create a timeline to find bottlenecks</td>
+          <td class="current">Sites record not just total time, but the time for incident report, team convening, traceability documents, hazard assessment, contact attempts and authority/customer communication.</td>
+          <td class="evidence">
+            <a href="https://www.ifsqn.com/forum/index.php/topic/15939-how-the-product-recall-and-withdrawal-procedure-should-be-tested/#entry43400">Recall procedure test</a><blockquote>"timing for each process step"</blockquote>
+            <a href="https://www.ifsqn.com/forum/index.php/topic/25671-mock-recall-exercise-for-fresh-produce-plant/#entry91617">Fresh produce mock recall</a><blockquote>"keep a timeline"</blockquote>
+            <a href="https://www.ifsqn.com/forum/index.php/topic/37284-sample-manual-for-traceability-program-and-mock-traceability/#entry153886">Sample manual</a><blockquote>"Total time to complete exercise"</blockquote>
+          </td>
+          <td>A built-in timeline is a product differentiator. It supports evidence, improvement actions and training.</td>
+        </tr>
+        <tr>
+          <td class="pattern">Auditors may challenge traceability live</td>
+          <td class="current">Some auditors select a random invoice, outgoing lot or raw material during audit and expect the site to demonstrate traceability and mass balance under time pressure.</td>
+          <td class="evidence">
+            <a href="https://www.ifsqn.com/forum/index.php/topic/19206-traceability-challenge-testing-during-brc-audit/#entry56379">Traceability Challenge Testing</a><blockquote>"while the auditor was here"</blockquote>
+            <a href="https://www.ifsqn.com/forum/index.php/topic/29823-mock-recall-during-sqf-audit/#entry130904">Mock recall during SQF audit</a><blockquote>"only takes 3 minutes"</blockquote>
+            <a href="https://www.ifsqn.com/forum/index.php/topic/21866-auditor-wants-a-mock-recall-performed-forwards-and-backwards/#entry69542">Auditor wants forwards/backwards</a><blockquote>"all relevant paperwork"</blockquote>
+            <a href="https://www.ifsqn.com/forum/index.php/topic/16025-mass-balance-audit/#entry43556">Mass Balance Audit</a><blockquote>"Ask for all records"</blockquote>
+          </td>
+          <td>The product should support "audit challenge mode": pick a lot, start timer, build evidence live, and export exactly what was shown.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>Evidence-Backed Current Tool Stack</h2>
+    <div class="grid-3">
+      <div class="card">
+        <h3>Paper and spreadsheets</h3>
+        <p>Common in smaller sites. Paper receiving records, paper batch records, printed forms, front sheets and spreadsheets remain central. Users report that manual systems can work, but they require discipline and good filing.</p>
+      </div>
+      <div class="card">
+        <h3>ERP/WMS/accounting systems</h3>
+        <p>ERP, SAP, SAGE, WMS and accounting systems make lot lookup faster. They usually do not replace the need to attach evidence, explain mass-balance variance or verify contacts.</p>
+      </div>
+      <div class="card">
+        <h3>Templates and audit packs</h3>
+        <p>Templates are widely requested because people need a consistent way to prove scenario, participants, timing, trace path, mass balance, contacts, deviations, corrective actions and sign-off.</p>
+      </div>
+    </div>
+
+    <h2>What This Means for a Product</h2>
+    <div class="grid-2">
+      <div class="card">
+        <h3>Must-have workflow</h3>
+        <ul>
+          <li>Scenario builder for raw material, finished product, packaging, complaint, supplier alert or random invoice.</li>
+          <li>Forward/backward trace map with batch, lot, WIP, warehouse, customer and supplier links.</li>
+          <li>Mass-balance worksheet with configurable tolerances and variance explanations.</li>
+          <li>Evidence checklist and source-document attachments.</li>
+          <li>Timeline, recall-team roles, contact verification and decision log.</li>
+          <li>Audit-pack export with front page plus supporting records.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>AI-agent opportunities</h3>
+        <ul>
+          <li>Extract lot, quantity, date, supplier and customer data from PDFs, scans and spreadsheets.</li>
+          <li>Suggest trace links from messy records, while requiring user confirmation.</li>
+          <li>Detect missing evidence and unexplained variance.</li>
+          <li>Draft supplier trace-challenge requests and customer contact scripts.</li>
+          <li>Draft the mock recall report and corrective-action language.</li>
+          <li>Answer audit-style questions over confirmed evidence only.</li>
+        </ul>
+      </div>
+    </div>
+
+    <h2>Open Product Questions From the Evidence</h2>
+    <div class="note">
+      <p><strong>1. Does the product start as standalone or ERP-adjacent?</strong> Forum evidence shows both paper-heavy sites and ERP/SAP/SAGE/WMS users. The safest initial shape is a standalone evidence workspace with imports and exports, not a full ERP replacement.</p>
+      <p><strong>2. Should mock recall and traceability be one product or two?</strong> Users blur the terms, but the workflows differ. Product design should present one exercise workspace with separate checklist tabs: traceability, mass balance, recall procedure, contacts and CAPA.</p>
+      <p><strong>3. How much judgement should the system make?</strong> It should calculate and flag; it should not autonomously decide whether a recall is required, whether customer communication is adequate, or whether a mass-balance variance is acceptable without a documented human rationale.</p>
+    </div>
+
+    <p class="small">Quotes are short excerpts from linked IFSQN forum posts. Interpretations are synthesis from the retrieved forum evidence.</p>
+  </main>
+</body>
+</html>
